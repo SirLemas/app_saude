@@ -369,12 +369,12 @@ export default function ProfissionalData(){
                             texto="Presença de/dos dentes na boca"
                         />
                         <Checkbox 
-                            nome={boca.saburra_lingual}
+                            nome={boca.saburra_lingual} 
                             onValueChange={(saburra_lingual) => setBoca({...boca, saburra_lingual})}
                             texto="Saburra lingual"
                         />
                         <Checkbox 
-                            nome={boca.feridas_ou_fissuras_labiais}
+                            nome={boca.feridas_ou_fissuras_labiais} 
                             onValueChange={(feridas_ou_fissuras_labiais) => setBoca({...boca, feridas_ou_fissuras_labiais})}
                             texto="Feridas e/ou fissuras labiais"
                         />
@@ -387,17 +387,17 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Olhos:</Text>
                     <View>
                         <Checkbox 
-                            nome={olhos.reflexo_pupilares_presentes}
+                            nome={olhos.reflexo_pupilares_presentes} 
                             onValueChange={(reflexo_pupilares_presentes) => setOlhos({...olhos, reflexo_pupilares_presentes})}
                             texto="Reflexo pupilares presentes"
                         />
                         <Checkbox 
-                            name={olhos.pupilas_em_miose}
+                            nome={olhos.pupilas_em_miose} 
                             onValueChange={(pupilas_em_miose) => setOlhos({...olhos, pupilas_em_miose})}
                             texto="Pupilas em miose"
                         />
                         <Checkbox 
-                            name={olhos.pupilas_em_midriase}
+                            nome={olhos.pupilas_em_midriase} 
                             onValueChange={(pupilas_em_midriase) => setOlhos({...olhos, pupilas_em_midriase})}
                             texto="Pupilas em midriase"
                         />
@@ -410,12 +410,12 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Nariz:</Text>
                     <View>
                         <Checkbox 
-                            name={nariz.nariz_hidratado}
+                            nome={nariz.nariz_hidratado} 
                             onValueChange={(nariz_hidratado) => setNariz({...nariz, nariz_hidratado})}
                             texto="Nariz hidratado"
                         />
                         <Checkbox 
-                            name={nariz.nariz_ressecado}
+                            nome={nariz.nariz_ressecado} 
                             onValueChange={(nariz_ressecado) => setNariz({...nariz, nariz_ressecado})}
                             texto="Nariz ressecado"
                         />
@@ -428,12 +428,12 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Ouvidos:</Text>
                     <View>
                         <Checkbox 
-                            name={ouvidos.ouvidos_limpos}
+                            nome={ouvidos.ouvidos_limpos} 
                             onValueChange={(ouvidos_limpos) => setOuvidos({...ouvidos, ouvidos_limpos})}
                             texto="Ouvidos limpos"
                         />
                         <Checkbox 
-                            name={ouvidos.ouvidos_com_presenca_de_cerumen}
+                            nome={ouvidos.ouvidos_com_presenca_de_cerumen} 
                             onValueChange={(ouvidos_com_presenca_de_cerumen) => setOuvidos({...ouvidos, ouvidos_com_presenca_de_cerumen})}
                             texto="Ouvidos com presença de cerúmen"
                         />
@@ -446,9 +446,9 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Pescoço:</Text>
                     <View>
                         <Checkbox 
-                                nome={pescoco.alteracao_da_traqueia}
-                                onValueChange={(alteracao_da_traqueia) => setPescoco({...pescoco, alteracao_da_traqueia})}
-                                texto="Alterações da traqueia"
+                            nome={pescoco.alteracao_da_traqueia}
+                            onValueChange={(alteracao_da_traqueia) => setPescoco({...pescoco, alteracao_da_traqueia})}
+                            texto="Alterações da traqueia"
                         />
                         <Checkbox 
                             nome={pescoco.tamanho_dos_linfonodos}

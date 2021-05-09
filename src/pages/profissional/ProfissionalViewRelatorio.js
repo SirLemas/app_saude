@@ -86,11 +86,11 @@ export default function ProfissionaViewRelatorio() {
                     </Text>
                 </ScrollView>
             </View>
-            <TouchableOpacity style={{alignSelf:'center', marginTop:30,}} onPress={() => console.log('tamo junto')}>
+            {/* <TouchableOpacity style={{alignSelf:'center', marginTop:30,}} onPress={() => alert('ainda será implementado')}>
                 <View style={styles.btn}>
                     <Text style={{fontSize:20}}>Gerar PDF</Text>
                 </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     );
 }

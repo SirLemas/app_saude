@@ -13,48 +13,48 @@ export default function ProfissionalData(){
 
     const [dadosGerais, setDadosGerais] = useState({});
 
-    const [estadoPaciente1, setEstadoPaciente1] = useState({}); // fazer check com if/else na tela
-    const [estadoPaciente2, setEstadoPaciente2] = useState({}); // fazer check com if/else na tela
-    const [estadoPaciente3, setEstadoPaciente3] = useState({}); // fazer check com if/else na tela
+    const [estadoPaciente1, setEstadoPaciente1] = useState({});
+    const [estadoPaciente2, setEstadoPaciente2] = useState({});
+    const [estadoPaciente3, setEstadoPaciente3] = useState({});
 
-    const [pele1, setPele1] = useState({}); // fazer check com if/else na tela
-    const [pele2, setPele2] = useState({}); // fazer check com if/else na tela
-    const [pele3, setPele3] = useState({}); // fazer check com if/else na tela
-    const [pele4, setPele4] = useState({}); // fazer check com if/else na tela
+    const [pele1, setPele1] = useState({});
+    const [pele2, setPele2] = useState({});
+    const [pele3, setPele3] = useState({});
+    const [pele4, setPele4] = useState({});
 
-    const [tamanhoCranio, setTamanhoCranio] = useState({}); // fazer check com if/else na tela
-    const [cabeca, setCabeca] = useState({}); // fazer check com if/else na tela
+    const [tamanhoCranio, setTamanhoCranio] = useState({});
+    const [cabeca, setCabeca] = useState({});
 
-    const [boca, setBoca] = useState({}); // fazer check com if/else na tela
-    const [olhos, setOlhos] = useState({}); // fazer check com if/else na tela
-    const [nariz, setNariz] = useState({}); // fazer check com if/else na tela
-    const [ouvidos, setOuvidos] = useState({}); // fazer check com if/else na tela
-    const [pescoco, setPescoco] = useState({}); // fazer check com if/else na tela
+    const [boca, setBoca] = useState({});
+    const [olhos, setOlhos] = useState({});
+    const [nariz, setNariz] = useState({});
+    const [ouvidos, setOuvidos] = useState({});
+    const [pescoco, setPescoco] = useState({});
 
     const [torax, setTorax] = useState({}); 
-    const [torax1, setTorax1] = useState({}); // fazer check com if/else na tela
-    const [torax2, setTorax2] = useState({}); // fazer check com if/else na tela
-    const [torax3, setTorax3] = useState({}); // fazer check com if/else na tela
+    const [torax1, setTorax1] = useState({});
+    const [torax2, setTorax2] = useState({});
+    const [torax3, setTorax3] = useState({});
 
-    const [cardiaco, setCardiaco] = useState({}); // fazer check com if/else na tela
-    const [cardiaco1, setCardiaco1] = useState({}); // fazer check com if/else na tela
+    const [cardiaco, setCardiaco] = useState({});
+    const [cardiaco1, setCardiaco1] = useState({});
 
-    const [abdome, setAbdome] = useState({}); //-> aqui
-    const [abdomeRuidos, setAbdomeRuidos] = useState({}); // fazer check com if/else na tela
-    const [abdomeReacao, setAbdomeReacao] = useState({}); // fazer check com if/else na tela
+    const [abdome, setAbdome] = useState({});
+    const [abdomeRuidos, setAbdomeRuidos] = useState({});
+    const [abdomeReacao, setAbdomeReacao] = useState({});
 
 
-    const [geniturinarioRetoAnus, setGeniturinarioRetoAnus] = useState({}); // fazer check com if/else na tela
+    const [geniturinarioRetoAnus, setGeniturinarioRetoAnus] = useState({});
 
-    const [mmssMmiiSimetria, setMmssMmiiSimetria] = useState({}); // fazer check com if/else na tela
-    const [mmssMmiiForcaMuscular, setMmssMmiiForcaMuscular] = useState({}); // fazer check com if/else na tela
+    const [mmssMmiiSimetria, setMmssMmiiSimetria] = useState({});
+    const [mmssMmiiForcaMuscular, setMmssMmiiForcaMuscular] = useState({});
 
-    const [sinaisVitais, setSinaisVitais] = useState({}); // fazer check com if/else na tela
+    const [sinaisVitais, setSinaisVitais] = useState({});
 
-    const [amplitudeDaFr, setAmplitudeDaFr] = useState({}); // fazer check com if/else na tela
-    const [ritmoDaFr, setRitmoDaFr] = useState({}); // fazer check com if/else na tela
-    const [amplitudeDaFc, setAmplitudeDaFC] = useState({}); // fazer check com if/else na tela
-    const [ritmoDaFC, setRitmoDaFC] = useState({}); // fazer check com if/else na tela
+    const [amplitudeDaFr, setAmplitudeDaFr] = useState({});
+    const [ritmoDaFr, setRitmoDaFr] = useState({});
+    const [amplitudeDaFc, setAmplitudeDaFC] = useState({});
+    const [ritmoDaFC, setRitmoDaFC] = useState({});
 
     function gerarRelatorio(){
 
@@ -369,12 +369,12 @@ export default function ProfissionalData(){
                             texto="Presença de/dos dentes na boca"
                         />
                         <Checkbox 
-                            nome={boca.saburra_lingual}
+                            nome={boca.saburra_lingual} 
                             onValueChange={(saburra_lingual) => setBoca({...boca, saburra_lingual})}
                             texto="Saburra lingual"
                         />
                         <Checkbox 
-                            nome={boca.feridas_ou_fissuras_labiais}
+                            nome={boca.feridas_ou_fissuras_labiais} 
                             onValueChange={(feridas_ou_fissuras_labiais) => setBoca({...boca, feridas_ou_fissuras_labiais})}
                             texto="Feridas e/ou fissuras labiais"
                         />
@@ -387,17 +387,17 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Olhos:</Text>
                     <View>
                         <Checkbox 
-                            nome={olhos.reflexo_pupilares_presentes}
+                            nome={olhos.reflexo_pupilares_presentes} 
                             onValueChange={(reflexo_pupilares_presentes) => setOlhos({...olhos, reflexo_pupilares_presentes})}
                             texto="Reflexo pupilares presentes"
                         />
                         <Checkbox 
-                            name={olhos.pupilas_em_miose}
+                            nome={olhos.pupilas_em_miose} 
                             onValueChange={(pupilas_em_miose) => setOlhos({...olhos, pupilas_em_miose})}
                             texto="Pupilas em miose"
                         />
                         <Checkbox 
-                            name={olhos.pupilas_em_midriase}
+                            nome={olhos.pupilas_em_midriase} 
                             onValueChange={(pupilas_em_midriase) => setOlhos({...olhos, pupilas_em_midriase})}
                             texto="Pupilas em midriase"
                         />
@@ -410,12 +410,12 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Nariz:</Text>
                     <View>
                         <Checkbox 
-                            name={nariz.nariz_hidratado}
+                            nome={nariz.nariz_hidratado} 
                             onValueChange={(nariz_hidratado) => setNariz({...nariz, nariz_hidratado})}
                             texto="Nariz hidratado"
                         />
                         <Checkbox 
-                            name={nariz.nariz_ressecado}
+                            nome={nariz.nariz_ressecado} 
                             onValueChange={(nariz_ressecado) => setNariz({...nariz, nariz_ressecado})}
                             texto="Nariz ressecado"
                         />
@@ -428,12 +428,12 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Ouvidos:</Text>
                     <View>
                         <Checkbox 
-                            name={ouvidos.ouvidos_limpos}
+                            nome={ouvidos.ouvidos_limpos} 
                             onValueChange={(ouvidos_limpos) => setOuvidos({...ouvidos, ouvidos_limpos})}
                             texto="Ouvidos limpos"
                         />
                         <Checkbox 
-                            name={ouvidos.ouvidos_com_presenca_de_cerumen}
+                            nome={ouvidos.ouvidos_com_presenca_de_cerumen} 
                             onValueChange={(ouvidos_com_presenca_de_cerumen) => setOuvidos({...ouvidos, ouvidos_com_presenca_de_cerumen})}
                             texto="Ouvidos com presença de cerúmen"
                         />
@@ -446,9 +446,9 @@ export default function ProfissionalData(){
                     <Text style={styles.subtitulo}>Pescoço:</Text>
                     <View>
                         <Checkbox 
-                                nome={pescoco.alteracao_da_traqueia}
-                                onValueChange={(alteracao_da_traqueia) => setPescoco({...pescoco, alteracao_da_traqueia})}
-                                texto="Alterações da traqueia"
+                            nome={pescoco.alteracao_da_traqueia}
+                            onValueChange={(alteracao_da_traqueia) => setPescoco({...pescoco, alteracao_da_traqueia})}
+                            texto="Alterações da traqueia"
                         />
                         <Checkbox 
                             nome={pescoco.tamanho_dos_linfonodos}

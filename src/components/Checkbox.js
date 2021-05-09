@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, CheckBox} from 'react-native';
 
 
-export default function DetailButton({propriedade, nome, texto, onValueChange}) {
+export default function DetailButton({nome, texto, onValueChange}) {
     return (   
         <View style={styles.checkboxContainer}>
             <View>

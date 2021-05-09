@@ -8,18 +8,20 @@ export default function HomeScreen({navigation}){
             <View style={styles.bg1}>
                 <Text style={styles.titulo}>Registro de Enfermagem</Text>
                 <Text style={styles.subtitulo}>Escolha uma das opções abaixo:</Text>
-                <TouchableOpacity style={{paddingTop:100}} onPress={() => navigation.navigate('estudante')}>
-                    <View style={styles.btn1}>
-                        <Image source={require('../assets/images/icone_estudante_livro.png')} style={styles.sizeIconBtn}/>
-                        <Text style={styles.textoBtn}>Estudante</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={{paddingTop:100}} onPress={() => navigation.navigate('profissional')}>
-                    <View style={styles.btn2}>
-                        <Image source={require('../assets/images/prancheta.png')} style={styles.sizeIconBtn}/>
-                        <Text style={styles.textoBtn}>Profissional</Text>
-                    </View>
-                </TouchableOpacity>
+                <View style={{flex:1, justifyContent:'space-around'}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('estudante')}>
+                        <View style={styles.btn1}>
+                            <Image source={require('../assets/images/icone_estudante_livro.png')} style={styles.sizeIconBtn}/>
+                            <Text style={styles.textoBtn}>Estudante</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('profissional')}>
+                        <View style={styles.btn2}>
+                            <Image source={require('../assets/images/prancheta.png')} style={styles.sizeIconBtn}/>
+                            <Text style={styles.textoBtn}>Profissional</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
             <View style={styles.bg2}>
                 <Text style={styles.textoRodape}>Desenvolvido por Talles Nogueira</Text>
@@ -32,11 +34,11 @@ export default function HomeScreen({navigation}){
 const styles = StyleSheet.create({
     Mainbg:{
         flex: 1,
-        backgroundColor:'#2E8B57'
+        backgroundColor:'#2E8B57',
     },
     bg1:{
         flex:1,
-        paddingTop:50,
+        marginTop:20,
         alignItems:'center'
     },
     bg2:{

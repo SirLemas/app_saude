@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     },
     areaVerde: {
         backgroundColor: '#2E8B57',
-        height:700,
+        flex:1,
         width:350,
         shadowOpacity:8,
         shadowOffset:{

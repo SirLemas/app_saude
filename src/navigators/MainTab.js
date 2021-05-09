@@ -1,11 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import MainProfissionalScreen from '../pages/profissional/MainProfissionalScreen';
-
 import TabBarIcon from '../components/TabBarIcon';
-import StackEstudante from '../navigators/StackEstudante';
 import HomeScreen from '../pages/HomeScreen';
+
+import StackEstudante from '../navigators/StackEstudante';
+import StackProfissional from '../navigators/StackProfissional';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +22,6 @@ export default () => (
             tabBarVisible:false
         }}/>
         <Tab.Screen name="estudante" component={StackEstudante}/>
-        <Tab.Screen name="profissional" component={MainProfissionalScreen}/>
+        <Tab.Screen name="profissional" component={StackProfissional}/>
     </Tab.Navigator>
 );

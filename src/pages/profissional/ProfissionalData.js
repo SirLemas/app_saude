@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, ScrollView, CheckBox, TouchableOpacity, Button} from 'react-native';
+import {Text, View, StyleSheet, ScrollView, TouchableOpacity,} from 'react-native';
 import {Input} from 'react-native-elements';
 import {TextInputMask} from 'react-native-masked-text';
 import {useNavigation} from '@react-navigation/native';
@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import Checkbox from '../../components/Checkbox';
 
-export default function ProfissionalData(){
+export default function ProfissionalData() {
 
     const navigation = useNavigation();
 
@@ -58,9 +58,9 @@ export default function ProfissionalData(){
 
     function gerarRelatorio(){
 
-
-        if(verificarObjetos()){
-            return alert('Por favor preencher todos os dados!');
+        let resp = verificarObjetos();
+        if(resp['value'] == true){
+            return alert(resp['message']);
         }else{
             let estadoTorax = check(torax);
             navigation.navigate('profissional_view_relatorio', {
@@ -97,52 +97,30 @@ export default function ProfissionalData(){
                 amplitudeDaFc,
                 ritmoDaFC
             });
-
-        }       
-    }
+        }
+    }      
 
     function verificarObjetos(){
-        if(objetoVazio(dadosGerais)) return true;
-        if(objetoVazio(estadoPaciente1)) return true;
-        if(objetoVazio(estadoPaciente2)) return true;
-        if(objetoVazio(estadoPaciente3)) return true;
-        if(objetoVazio(pele1)) return true;
-        if(objetoVazio(pele2)) return true;
-        if(objetoVazio(pele3)) return true;
-        if(objetoVazio(pele4)) return true;
-        if(objetoVazio(tamanhoCranio)) return true;
-        if(objetoVazio(cabeca)) return true;
+        if(objetoVazio(dadosGerais)){
+            let array = [];
+            array['message'] = 'Preencha todos os dados gerais';
+            array['value'] = true;
+            return array;
+        } 
+        if(objetoVazio(sinaisVitais)){
+            let array = [];
+            array['message'] = 'Preencha todos os dados de sinais vitais';
+            array['value'] = true;
+            return array;
+        }
 
-        if(objetoVazio(boca)) return true;
-        if(objetoVazio(olhos)) return true;
-        if(objetoVazio(nariz)) return true;
-        if(objetoVazio(ouvidos)) return true;
+        let array = [];
+        array['value'] = false;
+        return array;
+    }
 
-        if(objetoVazio(pescoco)) return true;
-        if(objetoVazio(torax)) return true;
-
-        if(objetoVazio(torax1)) return true;
-        if(objetoVazio(torax2)) return true;
-        if(objetoVazio(torax3)) return true;
-
-        if(objetoVazio(cardiaco)) return true;
-        if(objetoVazio(cardiaco1)) return true;
-        if(objetoVazio(abdome)) return true;
-        if(objetoVazio(abdomeRuidos)) return true;
-        if(objetoVazio(abdomeReacao)) return true;
-        if(objetoVazio(geniturinarioRetoAnus)) return true;
-
-        if(objetoVazio(mmssMmiiSimetria)) return true;
-        if(objetoVazio(mmssMmiiForcaMuscular)) return true;
-        if(objetoVazio(sinaisVitais)) return true;
-        
-        if(objetoVazio(amplitudeDaFr)) return true;v
-        if(objetoVazio(ritmoDaFr)) return true;
-        if(objetoVazio(amplitudeDaFc)) return true;
-        if(objetoVazio(ritmoDaFC)) return true;
-        
-
-        return false;
+    function mask(obj){
+        console.log(obj.length);
     }
 
     function objetoVazio(obj){
@@ -154,7 +132,6 @@ export default function ProfissionalData(){
 
     function check(obj){
         let retorno = [];
-        //verifica se o valor é verdadeiro e seta dentro do array
 
         Object.keys(obj).forEach(function(valor){
             if(obj[valor] == true){
@@ -693,7 +670,7 @@ export default function ProfissionalData(){
                     <TextInputMask 
                         type={'custom'}
                         options={{
-                            mask: '99'
+                            mask: '99,9'
                         }}
                         keyboardType="numeric"
                         style={styles.maskedInput2}
@@ -723,10 +700,10 @@ export default function ProfissionalData(){
                     <TextInputMask 
                         type={'custom'}
                         options={{
-                            mask: '99'
+                            mask: '999'
                         }}
                         keyboardType="numeric"
-                        style={[styles.maskedInput2, {width:25}]}
+                        style={[styles.maskedInput2, {width:35}]}
                         value={sinaisVitais.pressaoArterial1}
                         onChangeText={pressaoArterial1 => setSinaisVitais({...sinaisVitais, pressaoArterial1})}
                     />
@@ -751,7 +728,7 @@ export default function ProfissionalData(){
                         <TextInputMask 
                             type={'custom'}
                             options={{
-                                mask: '999'
+                                mask: '99***'
                             }}
                             keyboardType="numeric"
                             style={[styles.maskedInput2, {width:50}]}
@@ -765,7 +742,7 @@ export default function ProfissionalData(){
                         <TextInputMask 
                             type={'custom'}
                             options={{
-                                mask: '999'
+                                mask: '99***'
                             }}
                             keyboardType="numeric"
                             style={[styles.maskedInput2, {width:50}]}

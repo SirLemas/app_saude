@@ -12,7 +12,6 @@ export default () => (
             headerShown:false
         }}/>
         <EstudanteStack.Screen name="estudante_detalhe" component={EstudanteDetalhe} options={({route} )=> ({
-                title: route.params.titulo,
                 headerStyle:{
                     backgroundColor:'#C8C8C8'
                 }

@@ -1,16 +1,47 @@
-import React from 'react';
+import React, {useLayoutEffect, useEffect} from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+
 
 export default function EstudanteDetalhe() {
     const route = useRoute();
+    const navigation = useNavigation();
+
+    const [fontsLoaded] = useFonts({
+        'Comfortaa': require('../../../assets/fonts/Comfortaa-Regular.ttf'),
+        'Coolvetica': require('../../../assets/fonts/Coolvetica-Regular.ttf'),
+        'DreamOrphans': require('../../../assets/fonts/DreamOrphans-Regular.ttf'),
+        'Espera': require('../../../assets/fonts/Espera-Regular.ttf'),
+        'LouisGeorgeCafe': require('../../../assets/fonts/LouisGeorgeCafe-Regular.ttf'),
+    });
+
+
+    useEffect(() => {
+        if(!fontsLoaded){
+            navigation.setOptions({
+                title: <Text>{route.params.titulo}</Text>
+            });
+        }else{
+            navigation.setOptions({
+                title: <Text style={{fontFamily: 'LouisGeorgeCafe'}}>{route.params.titulo}</Text>
+            });
+        }            
+        
+    }, []);
+
+    if(!fontsLoaded){
+        return null;
+    }
+
     return(
         <View style={styles.bg}>
             <ScrollView style={styles.bg}>
                 <Text style={informacaoEtapa(route.params.id) != '' ? styles.textoInformativo : ''}>{informacaoEtapa(route.params.id)}</Text>
                 {informativoImagem(route.params.id)}
                 <View style={styles.linha}></View>
-                <Text style={{fontSize:16, padding:10}}>{exemploEtapa(route.params.id) ? 'Exemplo:' : ''}</Text>
+                <Text style={{fontSize:16, padding:10, fontFamily:'Espera'}}>{exemploEtapa(route.params.id) ? 'Exemplo:' : ''}</Text>
                 <Text style={styles.exemplo}>{exemploEtapa(route.params.id)}</Text>
             </ScrollView>
         </View>
@@ -199,10 +230,12 @@ const styles = StyleSheet.create({
     textoInformativo:{
         fontSize:18,
         padding:10,
+        fontFamily: 'LouisGeorgeCafe'
     },
     imagemTexto:{
         fontSize:18,
         paddingLeft:10,
+        fontFamily: 'LouisGeorgeCafe'
     },
     exemplo:{
         fontSize:16,

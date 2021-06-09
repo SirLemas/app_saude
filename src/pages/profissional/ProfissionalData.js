@@ -17,16 +17,36 @@ export default function ProfissionalData() {
     const [estadoPaciente2, setEstadoPaciente2] = useState({});
     const [estadoPaciente3, setEstadoPaciente3] = useState({});
 
-    const [pele1, setPele1] = useState({});
-    const [pele2, setPele2] = useState({});
-    const [pele3, setPele3] = useState({});
-    const [pele4, setPele4] = useState({});
+    //relacionado a pele agora:
+    const [coloracao, setColoracao] = useState({});
+    const [integridade, setIntegridade] = useState({});
+    const [umidade, setUmidade] = useState({});
+    const [textura, setTextura] = useState({});
+    const [espessura, setEspessura] = useState({});
+    const [temperatura, setTemperatura] = useState({});
+    const [elasticidade, setElasticidade] = useState({});
+    const [turgor, setTurgor] = useState({});
+    const [sensibilidade, setSensibilidade] = useState({});
+    const [lesoes, setLesoes] = useState({});
+    //
 
-    const [tamanhoCranio, setTamanhoCranio] = useState({});
-    const [cabeca, setCabeca] = useState({});
+    // relacionado a cabeça agora:
+    const [tamanho, setTamanho] = useState({});
+    const [posicao, setPosicao] = useState({});
+    const [superficie, setSuperficie] = useState({});
+    const [face, setFace] = useState({});
+    //
+
+    // Olhos:
+    const [palpebras, setPalpebras] = useState({});
+    const [globosOculares, setGlobosOculares] = useState({});
+    const [conjutiva, setConjutiva] = useState({});
+    const [esclerotica, setEsclerotica] = useState({});
+    const [reflexos, setReflexos] = useState({});
+    // 
 
     const [boca, setBoca] = useState({});
-    const [olhos, setOlhos] = useState({});
+
     const [nariz, setNariz] = useState({});
     const [ouvidos, setOuvidos] = useState({});
     const [pescoco, setPescoco] = useState({});
@@ -36,16 +56,24 @@ export default function ProfissionalData() {
     const [torax2, setTorax2] = useState({});
     const [torax3, setTorax3] = useState({});
 
+    const [forma, setForma] = useState({});
+    const [pneumotorax, setPneumotorax] = useState({});
+    const [hemotorax, setHemotorax] = useState({});
+    const [ritmoRespiratorio, setRitmoRespiratorio] = useState({});
+    const [expansibilidade, setExpansibilidade] = useState({});
+    const [sons, setSons] = useState({});
+
     const [cardiaco, setCardiaco] = useState({});
-    const [cardiaco1, setCardiaco1] = useState({});
 
     const [abdome, setAbdome] = useState({});
+    const [abdome1, setAbdome1] = useState({});
     const [abdomeRuidos, setAbdomeRuidos] = useState({});
     const [abdomeReacao, setAbdomeReacao] = useState({});
 
 
     const [geniturinarioRetoAnus, setGeniturinarioRetoAnus] = useState({});
 
+    const [mmssii, setMmssii] = useState({});
     const [mmssMmiiSimetria, setMmssMmiiSimetria] = useState({});
     const [mmssMmiiForcaMuscular, setMmssMmiiForcaMuscular] = useState({});
 
@@ -69,26 +97,53 @@ export default function ProfissionalData() {
                 estadoPaciente1,
                 estadoPaciente2,
                 estadoPaciente3,
-                pele1,
-                pele2,
-                pele3,
-                pele4,
-                tamanhoCranio,
-                cabeca,
+                //pele
+                coloracao,
+                integridade,
+                umidade,
+                textura,
+                espessura,
+                temperatura,
+                elasticidade,
+                turgor,
+                sensibilidade,
+                lesoes,
+                //cabeça
+                tamanho,
+                posicao,
+                superficie,
+                face,
+                //olhos
+                palpebras,
+                globosOculares,
+                conjutiva,
+                esclerotica,
+                reflexos,
+                //encerra olhos
                 boca,
-                olhos,
                 ouvidos,
                 nariz,
                 pescoco,
+                //torax
                 torax1,
                 torax2,
                 torax3,
+                forma,
+                pneumotorax,
+                hemotorax,
+                ritmoRespiratorio,
+                expansibilidade,
+                sons,
+                //encerra torax
                 cardiaco,
-                cardiaco1,
+                // abdome
                 abdome,
+                abdome1,
                 abdomeRuidos,
                 abdomeReacao,
+                // encerra abdome
                 geniturinarioRetoAnus,
+                mmssii,
                 mmssMmiiSimetria,
                 mmssMmiiForcaMuscular,
                 sinaisVitais,
@@ -117,10 +172,6 @@ export default function ProfissionalData() {
         let array = [];
         array['value'] = false;
         return array;
-    }
-
-    function mask(obj){
-        console.log(obj.length);
     }
 
     function objetoVazio(obj){
@@ -239,64 +290,215 @@ export default function ProfissionalData() {
             <View style={styles.bg2}>
                 <Text style={styles.titulo}>Exame Físico</Text>
                 <View>
-                    <Text style={[styles.subtitulo]}>Pele:</Text>
+                    <Text style={[styles.subtitulo]}>Pele, mucosa e fâneros</Text>
                     <View>
-                        <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={pele1.anicterico}
-                                onValueChange={(anicterico) => setPele1({...pele1, anicterico})}
-                                texto="Anictérico"
-                            />
-                            <Checkbox 
-                                nome={pele1.icterico}
-                                onValueChange={(icterico) => setPele1({...pele1, icterico})}
-                                texto="Ictérico"
-                            />
+                        <View style={styles.containerCheckbox}>
+                            <Text style={{fontSize:18}}>Coloração:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={coloracao.palidez} 
+                                    onValueChange={(palidez) => setColoracao({...coloracao, palidez})}
+                                    texto="Palidez"
+                                />
+                                <Checkbox 
+                                    nome={coloracao.eritrose} 
+                                    onValueChange={(eritrose) => setColoracao({...coloracao, eritrose})}
+                                    texto="Eritrose"
+                                />
+                                <Checkbox 
+                                    nome={coloracao.cianose} 
+                                    onValueChange={(cianose) => setColoracao({...coloracao, cianose})}
+                                    texto="Cianose"
+                                />
+                                <Checkbox 
+                                    nome={coloracao.ictericia} 
+                                    onValueChange={(ictericia) => setColoracao({...coloracao, ictericia})}
+                                    texto="Icterícia"
+                                />
+                                <Checkbox 
+                                    nome={coloracao.albinismo} 
+                                    onValueChange={(albinismo) => setColoracao({...coloracao, albinismo})}
+                                    texto="Albinismo"
+                                />
+                                <Checkbox 
+                                    nome={coloracao.sem} 
+                                    onValueChange={(sem) => setColoracao({...coloracao, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Integridade:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={integridade.exulceracao} 
+                                    onValueChange={(exulceracao) => setIntegridade({...integridade, exulceracao})}
+                                    texto="Exulceração"
+                                />
+                                <Checkbox 
+                                    nome={integridade.ulceracao} 
+                                    onValueChange={(ulceracao) => setIntegridade({...integridade, ulceracao})}
+                                    texto="Ulceração"
+                                />
+                                <Checkbox 
+                                    nome={integridade.fissura} 
+                                    onValueChange={(fissura) => setIntegridade({...integridade, fissura})}
+                                    texto="Fissura"
+                                />
+                                <Checkbox 
+                                    nome={integridade.sem} 
+                                    onValueChange={(sem) => setIntegridade({...integridade, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Umidade:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={umidade.sem} 
+                                    onValueChange={(sem) => setUmidade({...umidade, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                                <Checkbox 
+                                    nome={umidade.seca} 
+                                    onValueChange={(seca) => setUmidade({...umidade, seca})}
+                                    texto="Seca"
+                                />
+                                <Checkbox 
+                                    nome={umidade.umida} 
+                                    onValueChange={(umida) => setUmidade({...umidade, umida})}
+                                    texto="Umida"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Textura:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={textura.sem} 
+                                    onValueChange={(sem) => setTextura({...textura, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                                <Checkbox 
+                                    nome={textura.lisa} 
+                                    onValueChange={(lisa) => setTextura({...textura, lisa})}
+                                    texto="Lisa/fina"
+                                />
+                                <Checkbox 
+                                    nome={textura.aspera} 
+                                    onValueChange={(aspera) => setTextura({...textura, aspera})}
+                                    texto="Áspera"
+                                />
+                                <Checkbox 
+                                    nome={textura.enrugada} 
+                                    onValueChange={(enrugada) => setTextura({...textura, enrugada})}
+                                    texto="Enrugada"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Espessura:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={espessura.sem} 
+                                    onValueChange={(sem) => setEspessura({...espessura, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                                <Checkbox 
+                                    nome={espessura.atrofica} 
+                                    onValueChange={(atrofica) => setEspessura({...espessura, atrofica})}
+                                    texto="Atrófica"
+                                />
+                                <Checkbox 
+                                    nome={espessura.hipertrofica} 
+                                    onValueChange={(hipertrofica) => setEspessura({...espessura, hipertrofica})}
+                                    texto="Hipertrófica"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Temperatura:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={temperatura.normal} 
+                                    onValueChange={(normal) => setTemperatura({...temperatura, normal})}
+                                    texto="Normal"
+                                />
+                                <Checkbox 
+                                    nome={temperatura.aumentada} 
+                                    onValueChange={(aumentada) => setTemperatura({...temperatura, aumentada})}
+                                    texto="Aumentada"
+                                />
+                                <Checkbox 
+                                    nome={temperatura.diminuida} 
+                                    onValueChange={(diminuida) => setTemperatura({...temperatura, diminuida})}
+                                    texto="Diminuida"
+                                />
+                                <Checkbox 
+                                    nome={temperatura.sem} 
+                                    onValueChange={(sem) => setTemperatura({...temperatura, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Elasticidade/Mobilidade:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={elasticidade.sem} 
+                                    onValueChange={(sem) => setElasticidade({...elasticidade, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                                <Checkbox 
+                                    nome={elasticidade.aumentada} 
+                                    onValueChange={(aumentada) => setElasticidade({...elasticidade, aumentada})}
+                                    texto="Aumentada"
+                                />
+                                <Checkbox 
+                                    nome={elasticidade.diminuida} 
+                                    onValueChange={(diminuida) => setElasticidade({...elasticidade, diminuida})}
+                                    texto="Diminuida"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Turgor:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={turgor.sem} 
+                                    onValueChange={(sem) => setTurgor({...turgor, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                                <Checkbox 
+                                    nome={turgor.aumentado} 
+                                    onValueChange={(aumentado) => setTurgor({...turgor, aumentado})}
+                                    texto="Aumentado"
+                                />
+                                <Checkbox 
+                                    nome={turgor.diminuido} 
+                                    onValueChange={(diminuido) => setTurgor({...turgor, diminuido})}
+                                    texto="Diminuido"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Sensibilidade:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={sensibilidade.dolorosa} 
+                                    onValueChange={(dolorosa) => setSensibilidade({...sensibilidade, dolorosa})}
+                                    texto="Dolorosa (presente ou ausente)"
+                                />
+                                <Checkbox 
+                                    nome={sensibilidade.tatil} 
+                                    onValueChange={(tatil) => setSensibilidade({...sensibilidade, tatil})}
+                                    texto="Tátil (presente ou ausente)"
+                                />
+                                <Checkbox 
+                                    nome={sensibilidade.termica} 
+                                    onValueChange={(termica) => setSensibilidade({...sensibilidade, termica})}
+                                    texto="Térmica (presente ou ausente)"
+                                />
+                            </View>
+                            <Text style={{fontSize:18, paddingTop:10}}>Lesões:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={lesoes.nao} 
+                                    onValueChange={(nao) => setLesoes({...lesoes, nao})}
+                                    texto="Não apresenta"
+                                />
+                                <Checkbox 
+                                    nome={lesoes.apresenta} 
+                                    onValueChange={(apresenta) => setLesoes({...lesoes, apresenta})}
+                                    texto="Apresenta"
+                                />
+                            </View>
                         </View>
-                        <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={pele2.cianotico}
-                                onValueChange={(cianotico) => setPele2({...pele2, cianotico})}
-                                texto="Cianótico"
-                            />
-                            <Checkbox 
-                                nome={pele2.acianotico}
-                                onValueChange={(acianotico) => setPele2({...pele2, acianotico})}
-                                texto="Acianótico"
-                            />
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={pele3.integra}
-                                onValueChange={(integra) => setPele3({...pele3, integra})}
-                                texto="Integra"
-                            />
-                            <Checkbox 
-                                nome={pele3.hidratada}
-                                onValueChange={(hidratada) => setPele3({...pele3, hidratada})}
-                                texto="Hidratada"
-                            />
-                            <Checkbox 
-                                nome={pele3.ressecada}
-                                onValueChange={(ressecada) => setPele3({...pele3, ressecada})}
-                                texto="Ressecada"
-                            />
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={pele4.hipocorado}
-                                onValueChange={(hipocorado) => setPele4({...pele4, hipocorado})}
-                                texto="Hipocorado"
-                            />
-                            <Checkbox 
-                                nome={pele4.normocorado}
-                                onValueChange={(normocorado) => setPele4({...pele4, normocorado})}
-                                texto="Normocorado"
-                            />
-                        </View>
-
-
-
                     </View>
                 </View>
 
@@ -304,97 +506,315 @@ export default function ProfissionalData() {
 
                 <View style={{paddingBottom:20}}>
                     <Text style={styles.subtitulo}>Cabeça:</Text>
-                    <View>
-                        <View style={{flexDirection:'row', paddingBottom:20}}>
-                            <Checkbox 
-                                nome={tamanhoCranio.normal} 
-                                onValueChange={(normal) => setTamanhoCranio({...tamanhoCranio, normal})}
-                                texto="Normal"
-                            />
-                            <Checkbox 
-                                nome={tamanhoCranio.expandido} 
-                                onValueChange={(expandido) => setTamanhoCranio({...tamanhoCranio, expandido})}
-                                texto="Expandido"
-                            />
-                        </View>
-                        <Checkbox 
-                            nome={cabeca.tumoracoes} 
-                            onValueChange={(tumoracoes) => setCabeca({...cabeca, tumoracoes})}
-                            texto="Tumorações"
-                        />
-                        <Checkbox 
-                            nome={cabeca.lesoes_no_couro_cabeludo} 
-                            onValueChange={(lesoes_no_couro_cabeludo) => setCabeca({...cabeca, lesoes_no_couro_cabeludo})}
-                            texto="Lesões no couro cabeludo"
-                        />
-                        <Checkbox 
-                            nome={cabeca.pontos_dolorosos} 
-                            onValueChange={(pontos_dolorosos) => setCabeca({...cabeca, pontos_dolorosos})}
-                            texto="Pontos dolorosos"
-                        />
+                    <View style={styles.containerCheckbox}>
+                        <Text style={{fontSize:18}}>Tamanho e forma:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={tamanho.sem} 
+                                    onValueChange={(sem) => setTamanho({...tamanho, sem})}
+                                    texto="Sem Anormalidades"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.macrocefalia} 
+                                    onValueChange={(macrocefalia) => setTamanho({...tamanho, macrocefalia})}
+                                    texto="Macrocefalia"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.microcefalia} 
+                                    onValueChange={(microcefalia) => setTamanho({...tamanho, microcefalia})}
+                                    texto="Microcefalia"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.acrocefalia} 
+                                    onValueChange={(acrocefalia) => setTamanho({...tamanho, acrocefalia})}
+                                    texto="Acrocefalia"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.escalocefalia} 
+                                    onValueChange={(escalocefalia) => setTamanho({...tamanho, escalocefalia})}
+                                    texto="Escalocefalia"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.dolicocefalia} 
+                                    onValueChange={(dolicocefalia) => setTamanho({...tamanho, dolicocefalia})}
+                                    texto="Dolicocefalia"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.braquicefalia} 
+                                    onValueChange={(braquicefalia) => setTamanho({...tamanho, braquicefalia})}
+                                    texto="Braquicefalia"
+                                />
+                                <Checkbox 
+                                    nome={tamanho.plagiocefalia} 
+                                    onValueChange={(plagiocefalia) => setTamanho({...tamanho, plagiocefalia})}
+                                    texto="Plagiocefalia"
+                                />
+                            </View>
+                            <Text style={{fontSize:18}}>Posição e movimentos:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={posicao.torcicolo} 
+                                    onValueChange={(torcicolo) => setPosicao({...posicao, torcicolo})}
+                                    texto="Torcicolo"
+                                />
+                                <Checkbox 
+                                    nome={posicao.tiques} 
+                                    onValueChange={(tiques) => setPosicao({...posicao, tiques})}
+                                    texto="Tiques"
+                                />
+                                <Checkbox 
+                                    nome={posicao.sem} 
+                                    onValueChange={(sem) => setPosicao({...posicao, sem})}
+                                    texto="Sem Alteração"
+                                />
+                            </View>
+                            <Text style={{fontSize:18}}>Superficie e couro cabeludo:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={superficie.tumor} 
+                                    onValueChange={(tumor) => setSuperficie({...superficie, tumor})}
+                                    texto="Tumor"
+                                />
+                                <Checkbox 
+                                    nome={superficie.tumefacao} 
+                                    onValueChange={(tumefacao) => setSuperficie({...superficie, tumefacao})}
+                                    texto="Tumefação"
+                                />
+                                <Checkbox 
+                                    nome={superficie.bossa} 
+                                    onValueChange={(bossa) => setSuperficie({...superficie, bossa})}
+                                    texto="Bossa"
+                                />
+                                <Checkbox 
+                                    nome={superficie.hematoma} 
+                                    onValueChange={(hematoma) => setSuperficie({...superficie, hematoma})}
+                                    texto="Hematoma"
+                                />
+                                <Checkbox 
+                                    nome={superficie.depressao} 
+                                    onValueChange={(depressao) => setSuperficie({...superficie, depressao})}
+                                    texto="Depressão"
+                                />
+                                <Checkbox 
+                                    nome={superficie.ponto} 
+                                    onValueChange={(ponto) => setSuperficie({...superficie, ponto})}
+                                    texto="Ponto Doloroso"
+                                />
+                                <Checkbox 
+                                    nome={superficie.sem} 
+                                    onValueChange={(sem) => setSuperficie({...superficie, sem})}
+                                    texto="Sem Alterações"
+                                />
+                            </View>
+                            <Text style={{fontSize:18}}>Face:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={face.simetrica} 
+                                    onValueChange={(simetrica) => setFace({...face, simetrica})}
+                                    texto="Simétrica"
+                                />
+                                <Checkbox 
+                                    nome={face.assimetrica} 
+                                    onValueChange={(assimetrica) => setFace({...face, assimetrica})}
+                                    texto="Assimétrica"
+                                />
+                            </View>
                     </View>
                 </View>
 
                 <View style={styles.linhaMenor}></View>
 
                 <View style={{paddingBottom:20}}>
-                    <Text style={styles.subtitulo}>Boca:</Text>
-                    <View>
-                        <Checkbox 
-                            nome={boca.presenca_dos_dentes_na_boca} 
-                            onValueChange={(presenca_dos_dentes_na_boca) => setBoca({...boca, presenca_dos_dentes_na_boca})}
-                            texto="Presença de/dos dentes na boca"
-                        />
-                        <Checkbox 
-                            nome={boca.saburra_lingual} 
-                            onValueChange={(saburra_lingual) => setBoca({...boca, saburra_lingual})}
-                            texto="Saburra lingual"
-                        />
-                        <Checkbox 
-                            nome={boca.feridas_ou_fissuras_labiais} 
-                            onValueChange={(feridas_ou_fissuras_labiais) => setBoca({...boca, feridas_ou_fissuras_labiais})}
-                            texto="Feridas e/ou fissuras labiais"
-                        />
+                    <Text style={styles.subtitulo}>Olhos e supercilios:</Text>
+                    <View style={styles.containerCheckbox}>
+                        <Text style={{fontSize:18}}>Pálpebras, Cílios e Região Periorbicular:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={palpebras.edema} 
+                                    onValueChange={(edema) => setPalpebras({...palpebras, edema})}
+                                    texto="Edema (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.retracao} 
+                                    onValueChange={(retracao) => setPalpebras({...palpebras, retracao})}
+                                    texto="Retração Palpebral (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.ptose} 
+                                    onValueChange={(ptose) => setPalpebras({...palpebras, ptose})}
+                                    texto="Ptose Palpebral (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.epicanto} 
+                                    onValueChange={(epicanto) => setPalpebras({...palpebras, epicanto})}
+                                    texto="Epicanto (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.equimose} 
+                                    onValueChange={(equimose) => setPalpebras({...palpebras, equimose})}
+                                    texto="Equimose (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.xantelasma} 
+                                    onValueChange={(xantelasma) => setPalpebras({...palpebras, xantelasma})}
+                                    texto="Xantelasma (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.lagoftalmia} 
+                                    onValueChange={(lagoftalmia) => setPalpebras({...palpebras, lagoftalmia})}
+                                    texto="Lagoftalmia (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.triquiase} 
+                                    onValueChange={(triquiase) => setPalpebras({...palpebras, triquiase})}
+                                    texto="Triquíase (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.entropio} 
+                                    onValueChange={(entropio) => setPalpebras({...palpebras, entropio})}
+                                    texto="Entrópio (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.ectropio} 
+                                    onValueChange={(ectropio) => setPalpebras({...palpebras, ectropio})}
+                                    texto="Ectrópio (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={palpebras.sem} 
+                                    onValueChange={(sem) => setPalpebras({...palpebras, sem})}
+                                    texto="Sem Anormalidade"
+                                />
+                            </View>
+
+                            <Text style={{fontSize:18}}>Globos Oculares:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={globosOculares.exoftalmia} 
+                                    onValueChange={(exoftalmia) => setGlobosOculares({...globosOculares, exoftalmia})}
+                                    texto="Exoftalmia (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={globosOculares.enoftalmia} 
+                                    onValueChange={(enoftalmia) => setGlobosOculares({...globosOculares, enoftalmia})}
+                                    texto="Enoftalmia (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={globosOculares.desvio} 
+                                    onValueChange={(desvio) => setGlobosOculares({...globosOculares, desvio})}
+                                    texto="Desvio (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={globosOculares.movimento} 
+                                    onValueChange={(movimento) => setGlobosOculares({...globosOculares, movimento})}
+                                    texto="Movimento Involuntário (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={globosOculares.paralisia} 
+                                    onValueChange={(paralisia) => setGlobosOculares({...globosOculares, paralisia})}
+                                    texto="Paralisia Ocular"
+                                />
+                                <Checkbox 
+                                    nome={globosOculares.sem} 
+                                    onValueChange={(sem) => setGlobosOculares({...globosOculares, sem})}
+                                    texto="Sem Anormalidade"
+                                />
+                            </View>
+                            <Text style={{fontSize:18}}>Conjutiva:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={conjutiva.conjutivite} 
+                                    onValueChange={(conjutivite) => setConjutiva({...conjutiva, conjutivite})}
+                                    texto="Conjutivite (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={conjutiva.irite} 
+                                    onValueChange={(irite) => setConjutiva({...conjutiva, irite})}
+                                    texto="Irite (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={conjutiva.hemorragia} 
+                                    onValueChange={(hemorragia) => setConjutiva({...conjutiva, hemorragia})}
+                                    texto="Hemorragia Subconjuntival (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={conjutiva.sem} 
+                                    onValueChange={(sem) => setConjutiva({...conjutiva, sem})}
+                                    texto="Sem Anormalidade"
+                                />
+                            </View>
+                            <Text style={{fontSize:18}}>Esclerótica, Cornea e Cristalino:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={esclerotica.catarata} 
+                                    onValueChange={(catarata) => setEsclerotica({...esclerotica, catarata})}
+                                    texto="Catarata (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={esclerotica.pterigio} 
+                                    onValueChange={(pterigio) => setEsclerotica({...esclerotica, pterigio})}
+                                    texto="Pterígio (D/E)"
+                                />
+                                <Checkbox 
+                                    nome={esclerotica.sem} 
+                                    onValueChange={(sem) => setEsclerotica({...esclerotica, sem})}
+                                    texto="Sem Anormalidade"
+                                />
+                            </View>
+                            <Text style={{fontSize:18}}>Reflexos:</Text>
+                            <View style={{paddingTop:10}}>
+                                <Checkbox 
+                                    nome={reflexos.fotomotor} 
+                                    onValueChange={(fotomotor) => setReflexos({...reflexos, fotomotor})}
+                                    texto="Fotomotor"
+                                />
+                                <Checkbox 
+                                    nome={reflexos.consensual} 
+                                    onValueChange={(consensual) => setReflexos({...reflexos, consensual})}
+                                    texto="Consensual"
+                                />
+                                <Checkbox 
+                                    nome={reflexos.acomodacao} 
+                                    onValueChange={(acomodacao) => setReflexos({...reflexos, acomodacao})}
+                                    texto="Acomodação"
+                                />
+                                <Checkbox 
+                                    nome={reflexos.convergencia} 
+                                    onValueChange={(convergencia) => setReflexos({...reflexos, convergencia})}
+                                    texto="Convergência"
+                                />
+                            </View>
                     </View>
                 </View>
 
                 <View style={styles.linhaMenor}></View>
 
-                <View style={{paddingBottom:20}}>
-                    <Text style={styles.subtitulo}>Olhos:</Text>
-                    <View>
-                        <Checkbox 
-                            nome={olhos.reflexo_pupilares_presentes} 
-                            onValueChange={(reflexo_pupilares_presentes) => setOlhos({...olhos, reflexo_pupilares_presentes})}
-                            texto="Reflexo pupilares presentes"
-                        />
-                        <Checkbox 
-                            nome={olhos.pupilas_em_miose} 
-                            onValueChange={(pupilas_em_miose) => setOlhos({...olhos, pupilas_em_miose})}
-                            texto="Pupilas em miose"
-                        />
-                        <Checkbox 
-                            nome={olhos.pupilas_em_midriase} 
-                            onValueChange={(pupilas_em_midriase) => setOlhos({...olhos, pupilas_em_midriase})}
-                            texto="Pupilas em midriase"
-                        />
-                    </View>
-                </View>
-
-                <View style={styles.linhaMenor}></View>
-         
                 <View style={{paddingBottom:20}}>
                     <Text style={styles.subtitulo}>Nariz:</Text>
                     <View>
                         <Checkbox 
-                            nome={nariz.nariz_hidratado} 
-                            onValueChange={(nariz_hidratado) => setNariz({...nariz, nariz_hidratado})}
-                            texto="Nariz hidratado"
+                            nome={nariz.hidratado} 
+                            onValueChange={(hidratado) => setNariz({...nariz, hidratado})}
+                            texto="Hidratado"
                         />
                         <Checkbox 
-                            nome={nariz.nariz_ressecado} 
-                            onValueChange={(nariz_ressecado) => setNariz({...nariz, nariz_ressecado})}
-                            texto="Nariz ressecado"
+                            nome={nariz.ressecado} 
+                            onValueChange={(ressecado) => setNariz({...nariz, ressecado})}
+                            texto="Ressecado"
+                        />
+                        <Checkbox 
+                            nome={nariz.pervio} 
+                            onValueChange={(pervio) => setNariz({...nariz, pervio})}
+                            texto="Pérvio"
+                        />
+                        <Checkbox 
+                            nome={nariz.obstruido} 
+                            onValueChange={(obstruido) => setNariz({...nariz, obstruido})}
+                            texto="Obstruído"
+                        />
+                        <Checkbox 
+                            nome={nariz.sem} 
+                            onValueChange={(sem) => setNariz({...nariz, sem})}
+                            texto="Sem Anormalidades"
                         />
                     </View>
                 </View>
@@ -405,14 +825,82 @@ export default function ProfissionalData() {
                     <Text style={styles.subtitulo}>Ouvidos:</Text>
                     <View>
                         <Checkbox 
-                            nome={ouvidos.ouvidos_limpos} 
-                            onValueChange={(ouvidos_limpos) => setOuvidos({...ouvidos, ouvidos_limpos})}
-                            texto="Ouvidos limpos"
+                            nome={ouvidos.detritos} 
+                            onValueChange={(detritos) => setOuvidos({...ouvidos, detritos})}
+                            texto="Detritos Ceruminosos"
                         />
                         <Checkbox 
-                            nome={ouvidos.ouvidos_com_presenca_de_cerumen} 
-                            onValueChange={(ouvidos_com_presenca_de_cerumen) => setOuvidos({...ouvidos, ouvidos_com_presenca_de_cerumen})}
-                            texto="Ouvidos com presença de cerúmen"
+                            nome={ouvidos.descamacao} 
+                            onValueChange={(descamacao) => setOuvidos({...ouvidos, descamacao})}
+                            texto="Descamação"
+                        />
+                        <Checkbox 
+                            nome={ouvidos.sem} 
+                            onValueChange={(sem) => setOuvidos({...ouvidos, sem})}
+                            texto="Sem Anormalidades"
+                        />
+                    </View>
+                </View>
+
+                <View style={styles.linhaMenor}></View>
+
+                <View style={{paddingBottom:20}}>
+                    <Text style={styles.subtitulo}>Boca:</Text>
+                    <View>
+                        <Checkbox 
+                            nome={boca.denticao} 
+                            onValueChange={(denticao) => setBoca({...boca, denticao})}
+                            texto="Dentição Completa"
+                        />
+                        <Checkbox 
+                            nome={boca.protese} 
+                            onValueChange={(protese) => setBoca({...boca, protese})}
+                            texto="Uso de Prótese"
+                        />
+                        <Checkbox 
+                            nome={boca.arcada} 
+                            onValueChange={(arcada) => setBoca({...boca, arcada})}
+                            texto="Arcada Dentária Incompleta"
+                        />
+                        <Checkbox 
+                            nome={boca.saburra} 
+                            onValueChange={(saburra) => setBoca({...boca, saburra})}
+                            texto="Saburra lingual"
+                        />
+                        <Checkbox 
+                            nome={boca.seca} 
+                            onValueChange={(seca) => setBoca({...boca, seca})}
+                            texto="Língua Seca"
+                        />
+                        <Checkbox 
+                            nome={boca.lisa} 
+                            onValueChange={(lisa) => setBoca({...boca, lisa})}
+                            texto="Língua Lisa"
+                        />
+                        <Checkbox 
+                            nome={boca.geografica} 
+                            onValueChange={(geografica) => setBoca({...boca, geografica})}
+                            texto="Língua Geográfica"
+                        />
+                        <Checkbox 
+                            nome={boca.fissurada} 
+                            onValueChange={(fissurada) => setBoca({...boca, fissurada})}
+                            texto="Língua fissurada"
+                        />
+                        <Checkbox 
+                            nome={boca.macroglossia} 
+                            onValueChange={(macroglossia) => setBoca({...boca, macroglossia})}
+                            texto="Macroglossia"
+                        />
+                        <Checkbox 
+                            nome={boca.lesoes} 
+                            onValueChange={(lesoes) => setBoca({...boca, lesoes})}
+                            texto="Lesões"
+                        />
+                        <Checkbox 
+                            nome={boca.sem} 
+                            onValueChange={(sem) => setBoca({...boca, sem})}
+                            texto="Sem Anormalidades"
                         />
                     </View>
                 </View>
@@ -423,14 +911,34 @@ export default function ProfissionalData() {
                     <Text style={styles.subtitulo}>Pescoço:</Text>
                     <View>
                         <Checkbox 
-                            nome={pescoco.alteracao_da_traqueia}
-                            onValueChange={(alteracao_da_traqueia) => setPescoco({...pescoco, alteracao_da_traqueia})}
-                            texto="Alterações da traqueia"
+                            nome={pescoco.desvio}
+                            onValueChange={(desvio) => setPescoco({...pescoco, desvio})}
+                            texto="Desvio"
                         />
                         <Checkbox 
-                            nome={pescoco.tamanho_dos_linfonodos}
-                            onValueChange={(tamanho_dos_linfonodos) => setPescoco({...pescoco, tamanho_dos_linfonodos})}
-                            texto="Tamanho dos linfonodos"
+                            nome={pescoco.bocio}
+                            onValueChange={(bocio) => setPescoco({...pescoco, bocio})}
+                            texto="Bócio"
+                        />
+                        <Checkbox 
+                            nome={pescoco.hipertrofia}
+                            onValueChange={(hipertrofia) => setPescoco({...pescoco, hipertrofia})}
+                            texto="Hipertrofia de Linfonodo"
+                        />
+                        <Checkbox 
+                            nome={pescoco.sopro}
+                            onValueChange={(sopro) => setPescoco({...pescoco, sopro})}
+                            texto="Sopro"
+                        />
+                        <Checkbox 
+                            nome={pescoco.ingurgitamento}
+                            onValueChange={(ingurgitamento) => setPescoco({...pescoco, ingurgitamento})}
+                            texto="Ingurgitamento"
+                        />
+                        <Checkbox 
+                            nome={pescoco.sem}
+                            onValueChange={(sem) => setPescoco({...pescoco, sem})}
+                            texto="Sem Anormalidades"
                         />
                     </View>
                 </View>
@@ -440,7 +948,7 @@ export default function ProfissionalData() {
                 <View style={{paddingBottom:20}}>
                     <Text style={styles.subtitulo}>Toráx:</Text>
                     <View>
-                        <View style={{flexDirection:'row'}}>
+                        {/* <View style={{flexDirection:'row'}}>
                             <Checkbox 
                                 nome={torax1.enfisematoso}
                                 onValueChange={(enfisematoso) => setTorax1({...torax1, enfisematoso})}
@@ -451,8 +959,8 @@ export default function ProfissionalData() {
                                 onValueChange={(escavado) => setTorax1({...torax1, escavado})}
                                 texto="Escavado"
                             />
-                        </View>
-                        <View style={{flexDirection:'row'}}>
+                        </View> */}
+                        {/* <View style={{flexDirection:'row'}}>
                             <Checkbox 
                                 nome={torax2.peitoDePombo}
                                 onValueChange={(peitoDePombo) => setTorax2({...torax2, peitoDePombo})}
@@ -463,8 +971,8 @@ export default function ProfissionalData() {
                                 onValueChange={(normal) => setTorax2({...torax2, normal})}
                                 texto="Normal"
                             />
-                        </View>
-                        <View style={{flexDirection:'row'}}>
+                        </View> */}
+                        {/* <View style={{flexDirection:'row'}}>
                             <Checkbox 
                                 nome={torax3.simetrico}
                                 onValueChange={(simetrico) => setTorax3({...torax3, simetrico})}
@@ -475,8 +983,8 @@ export default function ProfissionalData() {
                                 onValueChange={(não_simetrico) => setTorax3({...torax3, não_simetrico})}
                                 texto="Não simetrico"
                             />
-                        </View>
-                        <Checkbox 
+                        </View> */}
+                        {/* <Checkbox 
                             nome={torax.expansividade_toracica}
                             onValueChange={(expansividade_toracica) => setTorax({...torax, expansividade_toracica})}
                             texto="Expansividade torácica"
@@ -485,16 +993,6 @@ export default function ProfissionalData() {
                             nome={torax.mv}
                             onValueChange={(mv) => setTorax({...torax, mv})}
                             texto="MV (murmúrios vesiculares)"
-                        />
-                        <Checkbox 
-                            nome={torax.ra}
-                            onValueChange={(ra) => setTorax({...torax, ra})}
-                            texto="RA (ruídos adventícios)"
-                        />
-                        <Checkbox 
-                            nome={torax.ap}
-                            onValueChange={(ap) => setTorax({...torax, ap})}
-                            texto="AP (ausculta pulmonar)"
                         />
                         <Checkbox 
                             nome={torax.som_claro}
@@ -515,6 +1013,169 @@ export default function ProfissionalData() {
                             nome={torax.som_submacico}
                             onValueChange={(som_submacico) => setTorax({...torax, som_submacico})}
                             texto="Som submaciço"
+                        /> */}
+                    </View>
+                    <Text style={styles.subtitulo}>Forma:</Text>
+                    <View>
+                        <Checkbox 
+                            nome={forma.chato}
+                            onValueChange={(chato) => setForma({...forma, chato})}
+                            texto="Chato"
+                        />
+                        <Checkbox 
+                            nome={forma.barril}
+                            onValueChange={(barril) => setForma({...forma, barril})}
+                            texto="Barril"
+                        />
+                        <Checkbox 
+                            nome={forma.infundibiliforme}
+                            onValueChange={(infundibiliforme) => setForma({...forma, infundibiliforme})}
+                            texto="Infundibiliforme"
+                        />
+                        <Checkbox 
+                            nome={forma.cifotico}
+                            onValueChange={(cifotico) => setForma({...forma, cifotico})}
+                            texto="Cifótico"
+                        />
+                        <Checkbox 
+                            nome={forma.escoliotico}
+                            onValueChange={(escoliotico) => setForma({...forma, escoliotico})}
+                            texto="Escoliótico"
+                        />
+                        <Checkbox 
+                            nome={forma.cariniforme}
+                            onValueChange={(cariniforme) => setForma({...forma, cariniforme})}
+                            texto="Cariniforme"
+                        />
+                        <Checkbox 
+                            nome={forma.sem}
+                            onValueChange={(sem) => setForma({...forma, sem})}
+                            texto="Sem Anormalidades"
+                        />
+                    </View>
+                    <Text style={styles.subtitulo}>Pneumotorax:</Text>
+                    <View>
+                        <Checkbox 
+                            nome={pneumotorax.ausente}
+                            onValueChange={(ausente) => setPneumotorax({...pneumotorax, ausente})}
+                            texto="Ausente"
+                        />
+                        <Checkbox 
+                            nome={pneumotorax.presente}
+                            onValueChange={(presente) => setPneumotorax({...pneumotorax, presente})}
+                            texto="Presente"
+                        />
+                    </View>
+                    <Text style={styles.subtitulo}>Hemotorax:</Text>
+                    <View>
+                        <Checkbox 
+                            nome={hemotorax.ausente}
+                            onValueChange={(ausente) => setHemotorax({...hemotorax, ausente})}
+                            texto="Ausente"
+                        />
+                        <Checkbox 
+                            nome={hemotorax.presente}
+                            onValueChange={(presente) => setHemotorax({...hemotorax, presente})}
+                            texto="Presente"
+                        />
+                    </View>
+                    <Text style={styles.subtitulo}>Ritmo Respiratório:</Text>
+                    <View>
+                        <Checkbox 
+                            nome={ritmoRespiratorio.dispneia}
+                            onValueChange={(dispneia) => setRitmoRespiratorio({...ritmoRespiratorio, dispneia})}
+                            texto="Dispneia"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.platipneia}
+                            onValueChange={(platipneia) => setRitmoRespiratorio({...ritmoRespiratorio, platipneia})}
+                            texto="Platipneia"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.ortopneia}
+                            onValueChange={(ortopneia) => setRitmoRespiratorio({...ritmoRespiratorio, ortopneia})}
+                            texto="Ortopneia"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.trepopneia}
+                            onValueChange={(trepopneia) => setRitmoRespiratorio({...ritmoRespiratorio, trepopneia})}
+                            texto="Trepopneia"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.cheyne}
+                            onValueChange={(cheyne) => setRitmoRespiratorio({...ritmoRespiratorio, cheyne})}
+                            texto="Cheyne"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.stokes}
+                            onValueChange={(stokes) => setRitmoRespiratorio({...ritmoRespiratorio, stokes})}
+                            texto="Stokes"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.biot}
+                            onValueChange={(biot) => setRitmoRespiratorio({...ritmoRespiratorio, biot})}
+                            texto="Biot"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.kussmaul}
+                            onValueChange={(kussmaul) => setRitmoRespiratorio({...ritmoRespiratorio, kussmaul})}
+                            texto="Kussmaul"
+                        />
+                        <Checkbox 
+                            nome={ritmoRespiratorio.supirosa}
+                            onValueChange={(supirosa) => setRitmoRespiratorio({...ritmoRespiratorio, supirosa})}
+                            texto="Supirosa"
+                        />
+                    </View>
+                    <Text style={styles.subtitulo}>Expansibilidade (D/E):</Text>
+                    <View>
+                        <Checkbox 
+                            nome={expansibilidade.pouco}
+                            onValueChange={(pouco) => setExpansibilidade({...expansibilidade, pouco})}
+                            texto="Pouco Expansivo"
+                        />
+                        <Checkbox 
+                            nome={expansibilidade.sem}
+                            onValueChange={(sem) => setExpansibilidade({...expansibilidade, sem})}
+                            texto="Sem Anormalidade"
+                        />
+                    </View>
+                    <Text style={styles.subtitulo}>Sons:</Text>
+                    <View>
+                        <Checkbox 
+                            nome={sons.fino}
+                            onValueChange={(fino) => setSons({...sons, fino})}
+                            texto="Estertor Fino (D/E)"
+                        />
+                        <Checkbox 
+                            nome={sons.grosso}
+                            onValueChange={(grosso) => setSons({...sons, grosso})}
+                            texto="Estertor Grosso (D/E)"
+                        />
+                        <Checkbox 
+                            nome={sons.roncos}
+                            onValueChange={(roncos) => setSons({...sons, roncos})}
+                            texto="Roncos (D/E)"
+                        />
+                        <Checkbox 
+                            nome={sons.sibilos}
+                            onValueChange={(sibilos) => setSons({...sons, sibilos})}
+                            texto="Sibilos (D/E)"
+                        />
+                        <Checkbox 
+                            nome={sons.estridor}
+                            onValueChange={(estridor) => setSons({...sons, estridor})}
+                            texto="Estridor (D/E)"
+                        />
+                        <Checkbox 
+                            nome={sons.atrito}
+                            onValueChange={(atrito) => setSons({...sons, atrito})}
+                            texto="Atrito Pleural (D/E)"
+                        />
+                        <Checkbox 
+                            nome={sons.sopro}
+                            onValueChange={(sopro) => setSons({...sons, sopro})}
+                            texto="Sopro Anfórico (D/E)"
                         />
                     </View>
                 </View>
@@ -526,28 +1187,38 @@ export default function ProfissionalData() {
                     <View>
                         <View style={{flexDirection:'row'}}>
                             <Checkbox 
-                                nome={cardiaco.pulso_celere}
-                                onValueChange={(pulso_celere) => setCardiaco({...cardiaco, pulso_celere})}
-                                texto="Pulso celere"
-                            />
-                            <Checkbox 
-                                nome={cardiaco.pulso_filiforme}
-                                onValueChange={(pulso_filiforme) => setCardiaco({...cardiaco, pulso_filiforme})}
-                                texto="Pulso filiforme"
-                            />
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={cardiaco1.apresenta_sopros}
-                                onValueChange={(apresenta_sopros) => setCardiaco1({...cardiaco1, apresenta_sopros})}
+                                nome={cardiaco.apresenta_sopros}
+                                onValueChange={(apresenta_sopros) => setCardiaco({...cardiaco, apresenta_sopros})}
                                 texto="Apresenta sopros"
                             />
                             <Checkbox 
-                                nome={cardiaco1.não_apresenta_sopros}
-                                onValueChange={(não_apresenta_sopros) => setCardiaco1({...cardiaco1, não_apresenta_sopros})}
+                                nome={cardiaco.não_apresenta_sopros}
+                                onValueChange={(não_apresenta_sopros) => setCardiaco({...cardiaco, não_apresenta_sopros})}
                                 texto="Não apresenta sopros"
                             />
                         </View>
+                        <View>
+                            <Checkbox 
+                                nome={cardiaco.binario}
+                                onValueChange={(binario) => setCardiaco({...cardiaco, binario})}
+                                texto="Ritmo Binário"
+                            />
+                            <Checkbox 
+                                nome={cardiaco.triplice}
+                                onValueChange={(triplice) => setCardiaco({...cardiaco, triplice})}
+                                texto="Ritmo Tríplice"
+                            />
+                            <Checkbox 
+                                nome={cardiaco.bulhas}
+                                onValueChange={(bulhas) => setCardiaco({...cardiaco, bulhas})}
+                                texto="Bulhas Normofonéticas"
+                            />
+                            <Checkbox 
+                                nome={cardiaco.sopro}
+                                onValueChange={(sopro) => setCardiaco({...cardiaco, sopro})}
+                                texto="Sopro (Mitral, Tricúspide, Pulmonar e/ou Aórtico)"
+                            />
+                    </View>
                     </View>
                 </View>
 
@@ -605,7 +1276,72 @@ export default function ProfissionalData() {
                             nome={abdomeReacao.reação_a_palpação_indolor}
                             onValueChange={(reação_a_palpação_indolor) => setAbdomeReacao({...abdomeReacao, reação_a_palpação_indolor})}
                             texto="Reação a palpação indolor"
-                        />   
+                        /> 
+                        <Checkbox 
+                            nome={abdome1.peristaltismo}
+                            onValueChange={(peristaltismo) => setAbdome1({...abdome1, peristaltismo})}
+                            texto="Peristaltismo Visível"
+                        />
+                        <Checkbox 
+                            nome={abdome1.escavado}
+                            onValueChange={(escavado) => setAbdome1({...abdome1, escavado})}
+                            texto="Escavado"
+                        />
+                        <Checkbox 
+                            nome={abdome1.hernia}
+                            onValueChange={(hernia) => setAbdome1({...abdome1, hernia})}
+                            texto="Hérnia"
+                        />
+                        <Checkbox 
+                            nome={abdome1.borborigmos}
+                            onValueChange={(borborigmos) => setAbdome1({...abdome1, borborigmos})}
+                            texto="Borborigmos"
+                        />
+                        <Checkbox 
+                            nome={abdome1.hepatomegalia}
+                            onValueChange={(hepatomegalia) => setAbdome1({...abdome1, hepatomegalia})}
+                            texto="Hepatomegalia"
+                        />
+                        <Checkbox 
+                            nome={abdome1.murphy}
+                            onValueChange={(murphy) => setAbdome1({...abdome1, murphy})}
+                            texto="Sinal de Murphy +"
+                        />
+                        <Checkbox 
+                            nome={abdome1.blumberg}
+                            onValueChange={(blumberg) => setAbdome1({...abdome1, blumberg})}
+                            texto="Sinal de Blumberg +"
+                        />
+                        <Checkbox 
+                            nome={abdome1.rovsing}
+                            onValueChange={(rovsing) => setAbdome1({...abdome1, rovsing})}
+                            texto="Sinal de Rovsing +"
+                        />
+                        <Checkbox 
+                            nome={abdome1.massas}
+                            onValueChange={(massas) => setAbdome1({...abdome1, massas})}
+                            texto="Massas"
+                        />
+                        <Checkbox 
+                            nome={abdome1.tumoracao}
+                            onValueChange={(tumoracao) => setAbdome1({...abdome1, tumoracao})}
+                            texto="Tumoração"
+                        />
+                        <Checkbox 
+                            nome={abdome1.piparote}
+                            onValueChange={(piparote) => setAbdome1({...abdome1, piparote})}
+                            texto="Sinal de Piparote +"
+                        />
+                        <Checkbox 
+                            nome={abdome1.pneumoperitonio}
+                            onValueChange={(pneumoperitonio) => setAbdome1({...abdome1, pneumoperitonio})}
+                            texto="Pneumoperitônio"
+                        />
+                        <Checkbox 
+                            nome={abdome1.sem}
+                            onValueChange={(sem) => setAbdome1({...abdome1, sem})}
+                            texto="Sem Anormalidades"
+                        />  
                     </View>
                 </View>
 
@@ -629,23 +1365,53 @@ export default function ProfissionalData() {
                             onValueChange={(secreções_patogênicas) => setGeniturinarioRetoAnus({...geniturinarioRetoAnus, secreções_patogênicas})}
                             texto="Secreções patogênicas"
                         />
+                        <Checkbox 
+                            nome={geniturinarioRetoAnus.prurido}
+                            onValueChange={(prurido) => setGeniturinarioRetoAnus({...geniturinarioRetoAnus, prurido})}
+                            texto="Prurido"
+                        />
+                        <Checkbox 
+                            nome={geniturinarioRetoAnus.dispareunia}
+                            onValueChange={(dispareunia) => setGeniturinarioRetoAnus({...geniturinarioRetoAnus, dispareunia})}
+                            texto="Dispareunia"
+                        />
+                        <Checkbox 
+                            nome={geniturinarioRetoAnus.sem}
+                            onValueChange={(sem) => setGeniturinarioRetoAnus({...geniturinarioRetoAnus, sem})}
+                            texto="Sem Anormalidades"
+                        />
                     </View>
                 </View>
 
                 <View style={styles.linhaMenor}></View>
 
                 <View style={{paddingBottom:20}}>                    
-                    <Text style={styles.subtitulo}>MMSS MMII:</Text>
+                    <Text style={styles.subtitulo}>MMSSII:</Text>
                     <View>
                         <Checkbox 
-                            nome={mmssMmiiSimetria.mmii_e_mmss_simetricos}
-                            onValueChange={(mmii_e_mmss_simetricos) => setMmssMmiiSimetria({...mmssMmiiSimetria, mmii_e_mmss_simetricos})}
-                            texto="MMII e MMSS simétricos"
+                            nome={mmssii.perfundidos}
+                            onValueChange={(perfundidos) => setMmssii({...mmssii, perfundidos})}
+                            texto="Bem Perfundidos"
                         />
                         <Checkbox 
-                            nome={mmssMmiiSimetria.mmii_e_mmss_não_simetricos}
-                            onValueChange={(mmii_e_mmss_não_simetricos) => setMmssMmiiSimetria({...mmssMmiiSimetria, mmii_e_mmss_não_simetricos})}
-                            texto="MMII e MMSS não simétricos"
+                            nome={mmssii.aquecidos}
+                            onValueChange={(aquecidos) => setMmssii({...mmssii, aquecidos})}
+                            texto="Aquecidos"
+                        />
+                        <Checkbox 
+                            nome={mmssii.edema}
+                            onValueChange={(edema) => setMmssii({...mmssii, edema})}
+                            texto="Edema"
+                        />
+                        <Checkbox 
+                            nome={mmssMmiiSimetria.simetricos}
+                            onValueChange={(simetricos) => setMmssMmiiSimetria({...mmssMmiiSimetria, simetricos})}
+                            texto="Simétricos"
+                        />
+                        <Checkbox 
+                            nome={mmssMmiiSimetria.assimetricos}
+                            onValueChange={(assimetricos) => setMmssMmiiSimetria({...mmssMmiiSimetria, assimetricos})}
+                            texto="Assimétricos"
                         />
                         <Checkbox 
                             nome={mmssMmiiForcaMuscular.força_muscular_preservada}
@@ -656,6 +1422,11 @@ export default function ProfissionalData() {
                             nome={mmssMmiiForcaMuscular.força_muscular_não_preservada}
                             onValueChange={(força_muscular_não_preservada) => setMmssMmiiForcaMuscular({...mmssMmiiForcaMuscular, força_muscular_não_preservada})}
                             texto="Força muscular não preservada"
+                        />
+                        <Checkbox 
+                            nome={mmssii.sem}
+                            onValueChange={(sem) => setMmssii({...mmssii, sem})}
+                            texto="Sem Anormalidades"
                         />
                     </View>
                 </View>
@@ -917,5 +1688,9 @@ const styles = StyleSheet.create({
         height:50, 
         justifyContent:'center', 
         alignItems:'center'
+    },
+    containerCheckbox:{
+        paddingLeft:15,
+        paddingTop:10
     }
 });

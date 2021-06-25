@@ -164,10 +164,13 @@ export default function ProfissionaViewRelatorio() {
         return '';
     }
     function olhosReflexos(params){
-        if(params.fotomotor == true) return 'Fotomotor';
-        if(params.consensual == true) return 'Consensual';
-        if(params.acomodacao == true) return 'Acomodação';
-        if(params.convergencia == true) return 'Convergência';
+        var ref = '';
+        if(params.fotomotor_dir == true) ref += 'Fotomotor olho direito, ';
+        if(params.fotomotor_esq == true) ref += 'Fotomotor olho esquerdo, ';
+        if(params.consensual_dir == true) ref += 'Consensual olho direito, ';
+        if(params.consensual_esq == true) ref += 'Consensual olho esquerdo, ';
+        if(params.acomodacao_dir == true) ref += 'Acomodação - Convergência olho direito, ';
+        if(params.acomodacao_esq == true) ref += 'Acomodação - Convergência olho esquerdo, ';
         return '';
     }
     //acabou olhos e supercilios
@@ -245,8 +248,7 @@ export default function ProfissionaViewRelatorio() {
         if(params.platipneia == true) return 'Platipneia';
         if(params.ortopneia == true) return 'Ortopneia';
         if(params.trepopneia == true) return 'Trepopneia';
-        if(params.cheyne == true) return 'Cheyne';
-        if(params.stokes == true) return 'Stokes';
+        if(params.cheyne == true) return 'Cheyne - Stokes';
         if(params.biot == true) return 'Biot';
         if(params.kussmaul == true) return 'Kussmaul';
         if(params.supirosa == true) return 'Supirosa';
@@ -265,6 +267,7 @@ export default function ProfissionaViewRelatorio() {
         if(params.estridor == true) return 'Estridor (D/E)';
         if(params.atrito == true) return 'Atrito pleural (D/E)';
         if(params.sopro == true) return 'Sopro anfórico (D/E)';
+        if(params.murmuros == true) return 'Murmúros Vesiculares';
         return '';
     }
     //acabou torax
@@ -273,6 +276,8 @@ export default function ProfissionaViewRelatorio() {
 
         if(params.apresenta_sopros == true) cardio += 'Apresenta sopros, ';
         if(params.não_apresenta_sopros == true) cardio += 'Não apresenta sopros, ';
+        if(params.bnf_2t == true) cardio += 'BNF em 2T, ';
+        if(params.bnf_3t == true) cardio += 'BNF em 3T, ';
         if(params.binario == true) cardio += 'Ritmo binário, ';
         if(params.triplice == true) cardio += 'Ritmo tríplice, ';
         if(params.bulhas == true) cardio += 'Bulhas Normofonéticas, ';
@@ -387,7 +392,7 @@ export default function ProfissionaViewRelatorio() {
                         {route.params.dadosGerais.iniciais_paciente ?? ''}
                     </Text>
                     <Text style={styles.textoRelatorio}>
-                        O paciente esta {estado1(route.params.estadoPaciente1)}, {estado2(route.params.estadoPaciente2)} do tempo, espaço e pessoa e {estado3(route.params.estadoPaciente3)}.
+                        O paciente esta {estado1(route.params.estadoPaciente1)}, {estado2(route.params.estadoPaciente2)} no tempo, espaço e pessoa e {estado3(route.params.estadoPaciente3)}.
                         {'\n'}Ao exame físico:
                         {'\n'}Pele: 
                         {'\n'}Coloração: {peleColoracao(route.params.coloracao)}, Integridade: {peleIntegridade(route.params.integridade)}, Umidade: {peleUmidade(route.params.umidade)}, Textura: {peleTextura(route.params.textura)}, Espessura: {peleEspessura(route.params.espessura)}, Temperatura {peleTemperatura(route.params.temperatura)}, Elasticidade/mobilidade: {peleElasticidade(route.params.elasticidade)}, Tugos: {peleTurgos(route.params.turgor)}, Sensibilidade: {peleSensibilidade(route.params.sensibilidade)}, Lesões: {peleLesoes(route.params.lesoes)}. 
@@ -401,10 +406,6 @@ export default function ProfissionaViewRelatorio() {
                         {'\n'}Pescoço: {pescoco(route.params.pescoco)}.
                         {'\n'}Tórax: 
                         {'\n'}Forma: {toraxForma(route.params.forma)} , Pneumotórax: {toraxPneumotorax(route.params.pneumotorax)}, Hemotórax: {toraxHemotorax(route.params.hemotorax)}, Ritmo respiratório: {toraxRitmoRespiratorio(route.params.ritmoRespiratorio)}, Expansibilidade: {toraxExpansividade(route.params.expansibilidade)}, Sons:{toraxSons(route.params.sons)}.
-                        {/* {torax1(route.params.torax1)}, {torax2(route.params.torax2)}, {torax3(route.params.torax3)}, 
-                        {route.params.estadoTorax.map(function(valor){
-                            return valor+', ';
-                        })} */}
                         {'\n'}Cardíaco: {cardiaco(route.params.cardiaco)}.
                         {'\n'}Abdômen: {abdomeGeral(route.params.abdome, route.params.abdome1, route.params.abdomeRuidos, route.params.abdomeReacao)}.
                         {'\n'}Geniturinário, reto e ânus: {geniturinario(route.params.geniturinarioRetoAnus)} e 

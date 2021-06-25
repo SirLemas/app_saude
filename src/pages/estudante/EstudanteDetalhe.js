@@ -96,7 +96,7 @@ function exemploEtapa(id){
         case '7':
             return 'ACV com BNF e RCR em 2T \n2T: Em dois tempos \nRCR: Ruído cardíaco regular';
         case '8':
-            return 'Abdômen globoso, refere dor á palpação profunda e superficial da região abdominal hipocondríaca direita, ruídos hidroaéreos(+).';
+            return 'Abdômen globoso, ruídos hidroaéreos(+) refere dor á palpação profunda e superficial da região abdominal hipocondríaca direita.';
         case '9':
             return 'Nas duas genitálias observas sinais de infecções sexualmente transmitidas (IST’S).';
         case '10':

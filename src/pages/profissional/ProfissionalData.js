@@ -51,11 +51,6 @@ export default function ProfissionalData() {
     const [ouvidos, setOuvidos] = useState({});
     const [pescoco, setPescoco] = useState({});
 
-    const [torax, setTorax] = useState({}); 
-    const [torax1, setTorax1] = useState({});
-    const [torax2, setTorax2] = useState({});
-    const [torax3, setTorax3] = useState({});
-
     const [forma, setForma] = useState({});
     const [pneumotorax, setPneumotorax] = useState({});
     const [hemotorax, setHemotorax] = useState({});
@@ -90,9 +85,7 @@ export default function ProfissionalData() {
         if(resp['value'] == true){
             return alert(resp['message']);
         }else{
-            let estadoTorax = check(torax);
             navigation.navigate('profissional_view_relatorio', {
-                estadoTorax,
                 dadosGerais,
                 estadoPaciente1,
                 estadoPaciente2,
@@ -125,9 +118,6 @@ export default function ProfissionalData() {
                 nariz,
                 pescoco,
                 //torax
-                torax1,
-                torax2,
-                torax3,
                 forma,
                 pneumotorax,
                 hemotorax,
@@ -179,31 +169,6 @@ export default function ProfissionalData() {
             return true;
         }
         return false;
-    }
-
-    function check(obj){
-        let retorno = [];
-
-        Object.keys(obj).forEach(function(valor){
-            if(obj[valor] == true){
-
-                if(valor.includes('_')){
-                    let arr = valor.split('_');
-                    let newString = '';
-                    for(let i = 0; i < arr.length; i++){
-                        newString += arr[i]+' ';
-                    }
-                    let ajs = newString[0].toUpperCase() + newString.substr(1);
-                    retorno.push(ajs);
-                }else{
-                    let ajuste = valor[0].toUpperCase() + valor.substr(1);
-                    retorno.push(ajuste);
-                }
-
-            }
-        });
-
-        return retorno;
     }
 
     return(
@@ -763,24 +728,34 @@ export default function ProfissionalData() {
                             <Text style={{fontSize:18}}>Reflexos:</Text>
                             <View style={{paddingTop:10}}>
                                 <Checkbox 
-                                    nome={reflexos.fotomotor} 
-                                    onValueChange={(fotomotor) => setReflexos({...reflexos, fotomotor})}
-                                    texto="Fotomotor"
+                                    nome={reflexos.fotomotor_dir} 
+                                    onValueChange={(fotomotor_dir) => setReflexos({...reflexos, fotomotor_dir})}
+                                    texto="Fotomotor Olho Direito"
                                 />
                                 <Checkbox 
-                                    nome={reflexos.consensual} 
-                                    onValueChange={(consensual) => setReflexos({...reflexos, consensual})}
-                                    texto="Consensual"
+                                    nome={reflexos.fotomotor_esq} 
+                                    onValueChange={(fotomotor_esq) => setReflexos({...reflexos, fotomotor_esq})}
+                                    texto="Fotomotor Olho Esquerdo"
                                 />
                                 <Checkbox 
-                                    nome={reflexos.acomodacao} 
-                                    onValueChange={(acomodacao) => setReflexos({...reflexos, acomodacao})}
-                                    texto="Acomodação"
+                                    nome={reflexos.consensual_dir} 
+                                    onValueChange={(consensual_dir) => setReflexos({...reflexos, consensual_dir})}
+                                    texto="Consensual Olho Direito"
                                 />
                                 <Checkbox 
-                                    nome={reflexos.convergencia} 
-                                    onValueChange={(convergencia) => setReflexos({...reflexos, convergencia})}
-                                    texto="Convergência"
+                                    nome={reflexos.consensual_esq} 
+                                    onValueChange={(consensual_esq) => setReflexos({...reflexos, consensual_esq})}
+                                    texto="Consensual Olho Esquerdo"
+                                />
+                                <Checkbox 
+                                    nome={reflexos.acomodacao_dir} 
+                                    onValueChange={(acomodacao_dir) => setReflexos({...reflexos, acomodacao_dir})}
+                                    texto="Acomodação - Convergência Olho Direito"
+                                />
+                                <Checkbox 
+                                    nome={reflexos.acomodacao_esq} 
+                                    onValueChange={(acomodacao_esq) => setReflexos({...reflexos, acomodacao_esq})}
+                                    texto="Acomodação - Convergência Olho Esquerdo"
                                 />
                             </View>
                     </View>
@@ -947,74 +922,6 @@ export default function ProfissionalData() {
 
                 <View style={{paddingBottom:20}}>
                     <Text style={styles.subtitulo}>Toráx:</Text>
-                    <View>
-                        {/* <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={torax1.enfisematoso}
-                                onValueChange={(enfisematoso) => setTorax1({...torax1, enfisematoso})}
-                                texto="Enfisematoso"
-                            />
-                            <Checkbox 
-                                nome={torax1.escavado}
-                                onValueChange={(escavado) => setTorax1({...torax1, escavado})}
-                                texto="Escavado"
-                            />
-                        </View> */}
-                        {/* <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={torax2.peitoDePombo}
-                                onValueChange={(peitoDePombo) => setTorax2({...torax2, peitoDePombo})}
-                                texto="Peito de Pombo"
-                            />
-                            <Checkbox 
-                                nome={torax2.normal}
-                                onValueChange={(normal) => setTorax2({...torax2, normal})}
-                                texto="Normal"
-                            />
-                        </View> */}
-                        {/* <View style={{flexDirection:'row'}}>
-                            <Checkbox 
-                                nome={torax3.simetrico}
-                                onValueChange={(simetrico) => setTorax3({...torax3, simetrico})}
-                                texto="Simetrico"
-                            />
-                            <Checkbox 
-                                nome={torax3.não_simetrico}
-                                onValueChange={(não_simetrico) => setTorax3({...torax3, não_simetrico})}
-                                texto="Não simetrico"
-                            />
-                        </View> */}
-                        {/* <Checkbox 
-                            nome={torax.expansividade_toracica}
-                            onValueChange={(expansividade_toracica) => setTorax({...torax, expansividade_toracica})}
-                            texto="Expansividade torácica"
-                        />
-                        <Checkbox 
-                            nome={torax.mv}
-                            onValueChange={(mv) => setTorax({...torax, mv})}
-                            texto="MV (murmúrios vesiculares)"
-                        />
-                        <Checkbox 
-                            nome={torax.som_claro}
-                            onValueChange={(som_claro) => setTorax({...torax, som_claro})}
-                            texto="Som claro"
-                        />
-                        <Checkbox 
-                            nome={torax.som_timpanico}
-                            onValueChange={(som_timpanico) => setTorax({...torax, som_timpanico})}
-                            texto="Som timpânico"
-                        />
-                        <Checkbox 
-                            nome={torax.som_macico}
-                            onValueChange={(som_macico) => setTorax({...torax, som_macico})}
-                            texto="Som maciço"
-                        />
-                        <Checkbox 
-                            nome={torax.som_submacico}
-                            onValueChange={(som_submacico) => setTorax({...torax, som_submacico})}
-                            texto="Som submaciço"
-                        /> */}
-                    </View>
                     <Text style={styles.subtitulo}>Forma:</Text>
                     <View>
                         <Checkbox 
@@ -1104,12 +1011,7 @@ export default function ProfissionalData() {
                         <Checkbox 
                             nome={ritmoRespiratorio.cheyne}
                             onValueChange={(cheyne) => setRitmoRespiratorio({...ritmoRespiratorio, cheyne})}
-                            texto="Cheyne"
-                        />
-                        <Checkbox 
-                            nome={ritmoRespiratorio.stokes}
-                            onValueChange={(stokes) => setRitmoRespiratorio({...ritmoRespiratorio, stokes})}
-                            texto="Stokes"
+                            texto="Cheyne - Stokes"
                         />
                         <Checkbox 
                             nome={ritmoRespiratorio.biot}
@@ -1177,6 +1079,11 @@ export default function ProfissionalData() {
                             onValueChange={(sopro) => setSons({...sons, sopro})}
                             texto="Sopro Anfórico (D/E)"
                         />
+                        <Checkbox 
+                            nome={sons.murmuros}
+                            onValueChange={(murmuros) => setSons({...sons, murmuros})}
+                            texto="Murmúros Vesiculares"
+                        />
                     </View>
                 </View>
 
@@ -1195,6 +1102,18 @@ export default function ProfissionalData() {
                                 nome={cardiaco.não_apresenta_sopros}
                                 onValueChange={(não_apresenta_sopros) => setCardiaco({...cardiaco, não_apresenta_sopros})}
                                 texto="Não apresenta sopros"
+                            />
+                        </View>
+                        <View style={{flexDirection:'row'}}>
+                            <Checkbox 
+                                nome={cardiaco.bnf_2t}
+                                onValueChange={(bnf_2t) => setCardiaco({...cardiaco, bnf_2t})}
+                                texto="BNF em 2T"
+                            />
+                            <Checkbox 
+                                nome={cardiaco.bnf_3t}
+                                onValueChange={(bnf_3t) => setCardiaco({...cardiaco, bnf_3t})}
+                                texto="BNF em 3T"
                             />
                         </View>
                         <View>

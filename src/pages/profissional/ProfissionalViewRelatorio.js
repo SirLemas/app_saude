@@ -431,9 +431,9 @@ const styles = StyleSheet.create({
         paddingTop:20
     },
     areaVerde: {
-        backgroundColor: '#2E8B57',
-        height:500,
-        width:350,
+        backgroundColor: '#333652',
+        height:550,
+        width:375,
         marginTop:30
         
     },
@@ -441,12 +441,14 @@ const styles = StyleSheet.create({
         paddingTop:15,
         marginLeft:10,
         paddingBottom:15,
-        fontSize: 16
+        fontSize: 16,
+        color: '#FFFFFF'
     },
     tituloRelatorio: {
         fontWeight:'bold',
         fontSize:22,
         textAlign:'center',
-        paddingTop:20
+        paddingTop:20,
+        color: '#FF5757'
     },
 });

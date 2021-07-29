@@ -1,8 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet, CheckBox} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import {CheckBox} from 'react-native';
 
 
-export default function DetailButton({nome, texto, onValueChange}) {
+export default function Checkbox({nome, texto, onValueChange}) {
+
     return (   
         <View style={styles.checkboxContainer}>
             <View>
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
     checkboxLabel:{
         flex:1,
         alignSelf:'center', 
-        fontSize:17
-
+        fontSize:17,
+        color: '#FFFFFF',
     }
 });

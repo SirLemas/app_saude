@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         paddingTop:30
     },
     areaVerde: {
-        backgroundColor: '#2E8B57',
+        backgroundColor: '#333652',
         flex:1,
         width:350,
         shadowOpacity:8,
@@ -52,13 +52,15 @@ const styles = StyleSheet.create({
         fontSize:25,
         textAlign:'center',
         paddingTop:25,
+        color: '#FF5757'
     },
     textoInformativo:{
         fontSize:14,
         paddingTop:15,
         fontWeight:'bold',
         textAlign:'justify',
-        width:320
+        width:320,
+        color: '#FFFFFF'
     },
     cercoBtn:{
         marginTop:70,

@@ -21,11 +21,11 @@ export default function EstudanteDetalhe() {
     useEffect(() => {
         if(!fontsLoaded){
             navigation.setOptions({
-                title: <Text>{route.params.titulo}</Text>
+                title: <Text style={{color:'#FF5757'}}>{route.params.titulo}</Text>
             });
         }else{
             navigation.setOptions({
-                title: <Text style={{fontFamily: 'LouisGeorgeCafe'}}>{route.params.titulo}</Text>
+                title: <Text style={{fontFamily: 'LouisGeorgeCafe', color:'#FF5757'}}>{route.params.titulo}</Text>
             });
         }            
         
@@ -41,7 +41,7 @@ export default function EstudanteDetalhe() {
                 <Text style={informacaoEtapa(route.params.id) != '' ? styles.textoInformativo : ''}>{informacaoEtapa(route.params.id)}</Text>
                 {informativoImagem(route.params.id)}
                 <View style={styles.linha}></View>
-                <Text style={{fontSize:16, padding:10, fontFamily:'Espera'}}>{exemploEtapa(route.params.id) ? 'Exemplo:' : ''}</Text>
+                <Text style={{fontSize:16, padding:10, fontFamily:'Espera', color: '#D66565'}}>{exemploEtapa(route.params.id) ? 'Exemplo:' : ''}</Text>
                 <Text style={styles.exemplo}>{exemploEtapa(route.params.id)}</Text>
             </ScrollView>
         </View>
@@ -220,26 +220,30 @@ function informativoImagem(id){
 
 const styles = StyleSheet.create({
     bg:{
-        flex:1
+        flex:1,
+        backgroundColor: '#333652'
     },
     linha:{
-        borderBottomColor: 'black',
+        borderBottomColor: '#FFFFFF',
         borderBottomWidth: 1,
-        paddingTop:25
+        paddingTop:25,
     },
     textoInformativo:{
         fontSize:18,
         padding:10,
-        fontFamily: 'LouisGeorgeCafe'
+        fontFamily: 'LouisGeorgeCafe',
+        color: '#FFFFFF'
     },
     imagemTexto:{
         fontSize:18,
         paddingLeft:10,
-        fontFamily: 'LouisGeorgeCafe'
+        fontFamily: 'LouisGeorgeCafe',
+        color: '#FFFFFF'
     },
     exemplo:{
         fontSize:16,
         fontWeight:'bold',
-        padding:10
+        padding:10,
+        color: '#D66565'
     }
 });

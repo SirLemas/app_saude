@@ -34,7 +34,7 @@ export default function HomeScreen({navigation}){
 const styles = StyleSheet.create({
     Mainbg:{
         flex: 1,
-        backgroundColor:'#2E8B57',
+        backgroundColor:'#333652',
     },
     bg1:{
         flex:1,
@@ -46,15 +46,15 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'white'
+        backgroundColor:'#FFFFFF'
     },
     titulo:{
-        color:'white',
+        color:'#FFFFFF',
         fontSize:30,
         paddingBottom:20
     },
     subtitulo:{
-        color:'white',
+        color:'#FF5757',
         fontSize:18
     },
     textoRodape:{
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
     },
     btn1:{
-        backgroundColor:'white',
+        backgroundColor:'#FFFFFF',
         width:150,
         height:150,
         borderRadius:80,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         fontSize:18,
     },
     btn2:{
-        backgroundColor:'white',
+        backgroundColor:'#FFFFFF',
         width:150,
         height:150,
         borderRadius:80,

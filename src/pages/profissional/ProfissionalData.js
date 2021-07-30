@@ -419,10 +419,10 @@ export default function ProfissionalData() {
         // if(nome === 'acamado') return acamado(estado);
         if(nome === 'acamado') return setEstadoPaciente1({...estadoPaciente1, acamado:!estado});
         if(nome === 'deambulando') return setEstadoPaciente1({...estadoPaciente1, deambulando:!estado});
-        if(nome === 'orientado') return setEstadoPaciente1({...estadoPaciente1, orientado:!estado});
-        if(nome === 'desorientado') return setEstadoPaciente1({...estadoPaciente1, desorientado:!estado});
-        if(nome === 'colaborativo') return setEstadoPaciente1({...estadoPaciente1, colaborativo:!estado});
-        if(nome === 'nao_colaborativo') return setEstadoPaciente1({...estadoPaciente1, nao_colaborativo:!estado});
+        if(nome === 'orientado') return setEstadoPaciente2({...estadoPaciente2, orientado:!estado});
+        if(nome === 'desorientado') return setEstadoPaciente2({...estadoPaciente2, desorientado:!estado});
+        if(nome === 'colaborativo') return setEstadoPaciente3({...estadoPaciente3, colaborativo:!estado});
+        if(nome === 'nao_colaborativo') return setEstadoPaciente3({...estadoPaciente3, nao_colaborativo:!estado});
     }
     // Coloração
     function checkChangeColoracao(nome, estado){
@@ -455,6 +455,7 @@ export default function ProfissionalData() {
     }
     // Espessura
     function checkChangeEspessura(nome, estado){
+        console.warn(nome);
         if(nome === 'atrofica') return setEspessura({...espessura, atrofica:!estado});
         if(nome === 'hipertrofica') return setEspessura({...espessura, hipertrofica:!estado});
         if(nome === 'sem') return setEspessura({...espessura, sem:!estado});
@@ -625,7 +626,7 @@ export default function ProfissionalData() {
     }
     // Ritmo Respiratorio
     function checkChangeRitmoRespiratorio(nome, estado){
-        if(nome === 'dispineia') return setRitmoRespiratorio({...ritmoRespiratorio, dispneia:!estado});
+        if(nome === 'dispneia') return setRitmoRespiratorio({...ritmoRespiratorio, dispneia:!estado});
         if(nome === 'platipneia') return setRitmoRespiratorio({...ritmoRespiratorio, platipneia:!estado});
         if(nome === 'ortopneia') return setRitmoRespiratorio({...ritmoRespiratorio, ortopneia:!estado});
         if(nome === 'trepopneia') return setRitmoRespiratorio({...ritmoRespiratorio, trepopneia:!estado});
@@ -936,7 +937,7 @@ export default function ProfissionalData() {
                             <View style={{paddingTop:10}}>
                                 <Checkbox2 
                                     checked={espessura.sem}
-                                    onPress={() => checkChangeEspessura('espessura', espessura.sem)}
+                                    onPress={() => checkChangeEspessura('sem', espessura.sem)}
                                     texto="Sem Anormalidades"
                                 />
                                 <Checkbox2 
@@ -954,7 +955,7 @@ export default function ProfissionalData() {
                             <View style={{paddingTop:10}}>
                                 <Checkbox2 
                                     checked={temperatura.normal}
-                                    onPress={() => checkChangeTemperatura('temperatura', temperatura.normal)}
+                                    onPress={() => checkChangeTemperatura('normal', temperatura.normal)}
                                     texto="Normal"
                                 />
                                 <Checkbox2 

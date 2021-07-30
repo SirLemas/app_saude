@@ -18,11 +18,11 @@ export default function MainEstudanteScreen(){
                     <DetailButton texto="Etapa 3 - (Exame Físico) - Tegumentar" screenParams="3" nav={navigation}/>
                     <DetailButton texto="Etapa 4 - (Exame Físico) - Cabeça" screenParams="4" nav={navigation}/>
                     <DetailButton texto="Etapa 5 - (Exame Físico) - Pescoço" screenParams="5" nav={navigation}/>
-                    <DetailButton texto="Etapa 6 - Respiratório" screenParams="6" nav={navigation}/>
-                    <DetailButton texto="Etapa 7 - Cardiaco" screenParams="7" nav={navigation}/>
-                    <DetailButton texto="Etapa 8 - Abdominal" screenParams="8" nav={navigation}/>
-                    <DetailButton texto="Etapa 9 - Geniturinário Reto e Ânus" screenParams="9" nav={navigation}/>
-                    <DetailButton texto="Etapa 10 - Membros Superiores (MMSS) e Inferiores (MMII)" screenParams="10" nav={navigation}/>
+                    <DetailButton texto="Etapa 6 - (Exame Físico) - Respiratório" screenParams="6" nav={navigation}/>
+                    <DetailButton texto="Etapa 7 - (Exame Físico) - Cardiaco" screenParams="7" nav={navigation}/>
+                    <DetailButton texto="Etapa 8 - (Exame Físico) - Abdominal" screenParams="8" nav={navigation}/>
+                    <DetailButton texto="Etapa 9 - (Exame Físico) - Geniturinário Reto e Ânus" screenParams="9" nav={navigation}/>
+                    <DetailButton texto="Etapa 10 - (Exame Físico) - Membros Superiores (MMSS) e Inferiores (MMII)" screenParams="10" nav={navigation}/>
                     <DetailButton texto="Etapa 11 - Sinais Vitais(SS VV)" screenParams="11" nav={navigation}/>
                     <DetailButton texto="Etapa 12 - Dados Subjetivos" screenParams="12" nav={navigation}/>
                     <DetailButton texto="Etapa 13 - Assinatura e Carimbo" screenParams="13" nav={navigation}/>

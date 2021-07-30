@@ -8,18 +8,13 @@ export default function HomeScreen({navigation}){
             <View style={styles.bg1}>
                 <Text style={styles.titulo}>Registro de Enfermagem</Text>
                 <Text style={styles.subtitulo}>Escolha uma das opções abaixo:</Text>
-                <View style={{flex:1, justifyContent:'space-around'}}>
+                <View>
                     <TouchableOpacity onPress={() => navigation.navigate('estudante')}>
-                        <View style={styles.btn1}>
-                            <Image source={require('../assets/images/icone_estudante_livro.png')} style={styles.sizeIconBtn}/>
-                            <Text style={styles.textoBtn}>Estudante</Text>
-                        </View>
+                            <Image source={require('../assets/images/estudante_botao.png')} style={{resizeMode: 'contain', width:500, height:200}}/>
                     </TouchableOpacity>
+                    <View style={styles.separacao}></View>
                     <TouchableOpacity onPress={() => navigation.navigate('profissional')}>
-                        <View style={styles.btn2}>
-                            <Image source={require('../assets/images/prancheta.png')} style={styles.sizeIconBtn}/>
-                            <Text style={styles.textoBtn}>Profissional</Text>
-                        </View>
+                            <Image source={require('../assets/images/profissional_botao.png')} style={{resizeMode: 'contain', width:500, height:200}}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -55,7 +50,8 @@ const styles = StyleSheet.create({
     },
     subtitulo:{
         color:'#FF5757',
-        fontSize:18
+        fontSize:18,
+        paddingBottom:20
     },
     textoRodape:{
         fontSize:15
@@ -70,8 +66,12 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     sizeIconBtn:{
-        width:100,
-        height:100
+        // width:100,
+        // height:100
+    },
+    separacao: {
+        paddingTop:25,
+        marginLeft:50
     },
     textoBtn:{
         fontSize:18,

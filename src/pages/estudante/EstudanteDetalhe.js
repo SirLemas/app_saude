@@ -155,7 +155,7 @@ function informativoImagem(id){
             return(
                 <View>
                     <Text style={[styles.imagemTexto, {fontWeight:'bold', paddingBottom:30}]}>OBS: Algumas instituições de saúde possuem prontuários padronizados com o registro de sinais vitais a parte do registro de enfermagem.</Text>
-                    <Text style={[styles.imagemTexto, {fontWeight:'bold'}]}>ADULTO</Text>
+                    <Text style={[styles.imagemTexto, {fontWeight:'bold', paddingBottom:10}]}>ADULTO</Text>
                     <Text style={styles.textoInformativo}>
                         •	Normotérmico: 35°c a 37,4°c{"\n"}
                         •	Hipertermia: {">"} 37,5°c{"\n"}   
@@ -178,7 +178,7 @@ function informativoImagem(id){
                         •	Taquicardia: {">"} 100bpm{"\n"}
                         •	Bradicardia: {"<"} 60 bpm
                     </Text>
-                    <Text style={[styles.imagemTexto, {fontWeight:'bold'}]}>PEDIÁTRICO</Text>
+                    <Text style={[styles.imagemTexto, {fontWeight:'bold', paddingTop:10, paddingBottom:10}]}>PEDIÁTRICO</Text>
                     <Text style={styles.textoInformativo}>
                         Temperatura:{"\n"}
                         •	Oral: 35,5-37,2°c{"\n"}
@@ -205,9 +205,12 @@ function informativoImagem(id){
                         •	1-3 anos: 90/65 mmHg{"\n"}
                         •	3-5 anos: 95/60 mmHg
                     </Text>
-                    <Text style={[styles.textoInformativo, {fontWeight:'bold'}]}>Índice de massa corpórea:</Text>
+                    <Text style={[styles.textoInformativo, {fontWeight:'bold', paddingBottom:10, paddingTop:10}]}>Índice de massa corpórea:</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={[styles.textoInformativo, {lineHeight: 30}]}>Formula: Peso/Altura</Text>
+                        <Text style={{lineHeight: 18, color:"white"}}>²</Text>
+                    </View>
                     <Text style={styles.textoInformativo}>
-                        Formula: Peso/Altura{"\n"}
                         Homens: IMC entre 20-25{"\n"}
                         Mulheres: IMC entre 19-24{"\n"}
                         Acima de 27: considerado 20% acima do peso{"\n"}
@@ -229,8 +232,8 @@ const styles = StyleSheet.create({
         paddingTop:25,
     },
     textoInformativo:{
-        fontSize:18,
-        padding:10,
+        fontSize:20,
+        paddingLeft:10,
         fontFamily: 'LouisGeorgeCafe',
         color: '#FFFFFF'
     },

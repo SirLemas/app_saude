@@ -13,7 +13,7 @@ export default () => (
         }}/>
         <EstudanteStack.Screen name="estudante_detalhe" component={EstudanteDetalhe} options={({route} )=> ({
                 headerStyle:{
-                    backgroundColor:'#C8C8C8'
+                    backgroundColor:'#FFFFFF'
                 }
         })}/>
     </EstudanteStack.Navigator>

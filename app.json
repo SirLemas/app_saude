@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "nursingGuide",
+    "name": "Nursing Guide",
     "slug": "nursingguide",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/nursing_adaptive_icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.talles.nursingGuide",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
